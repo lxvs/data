@@ -203,7 +203,6 @@ a:link, .tufte-underline, .hover-tufte-underline:hover {
     -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
     background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
     background-repeat: no-repeat, no-repeat, repeat-x;
-    text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
     background-position: 0% 93%, 100% 93%, 0% 93%;
 }
 
@@ -211,19 +210,6 @@ a:link, .tufte-underline, .hover-tufte-underline:hover {
     a:link, .tufte-underline, .hover-tufte-underline:hover {
         background-position-y: 87%, 87%, 87%;
     }
-}
-
-/* Adds dark mode */
-@media (prefers-color-scheme: dark) {
-    a:link, .tufte-underline, .hover-tufte-underline:hover {
-        text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
-    }
-}
-
-a:link::selection,
-a:link::-moz-selection {
-    text-shadow: 0.03em 0 #b4d5fe, -0.03em 0 #b4d5fe, 0 0.03em #b4d5fe, 0 -0.03em #b4d5fe, 0.06em 0 #b4d5fe, -0.06em 0 #b4d5fe, 0.09em 0 #b4d5fe, -0.09em 0 #b4d5fe, 0.12em 0 #b4d5fe, -0.12em 0 #b4d5fe, 0.15em 0 #b4d5fe, -0.15em 0 #b4d5fe;
-    background: #b4d5fe;
 }
 
 /* Sidenotes, margin notes, figures, captions */
@@ -358,6 +344,18 @@ label.margin-toggle:not(.sidenote-number) {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+::selection {
+    color: #111;
+    background-color: aquamarine;
+}
+
+@media (prefers-color-scheme: dark) {
+    ::selection {
+        color: #ddd;
+        background-color: darkslategray;
+    }
 }
 
 @media (max-width: 760px) {
