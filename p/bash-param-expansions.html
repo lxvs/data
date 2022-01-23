@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BASH Parameter Expansions - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="A quick guide on Bash parameter expansions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>BASH Parameter Expansions</h1>
+      <p class="subtitle">
+        Feb 2, 2021<br>
+        Updated on Jan 9, 2022
+      </p>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#expansions">Parameter Expansions</a></li>
+          <li><a href="#substring">Substring</a></li>
+          <li><a href="#ref2var">Reference to Variables</a></li>
+          <li><a href="#references">References</a></li>
+        </ul>
+      </section>
+
+      <section id="expansions">
+        <h2>Parameter Expansions</h2>
+        <table>
+          <tr>
+            <th>Reference</th>
+            <th>Set and Not Null</th>
+            <th>Set but Null</th>
+            <th>Unset</th>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>-<i>word</i>}</code></td>
+            <td>substitute <i>parameter</i></td>
+            <td>substitute null<label for="sn-subst-null" class="margin-toggle sidenote-number"></label></td>
+            <td>substitute <i>word</i></td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>:-<i>word</i>}</code></td>
+            <td>substitute <i>parameter</i></td>
+            <td>substitute <i>word</i></td>
+            <td>substitute <i>word</i></td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>+<i>word</i>}</code></td>
+            <td>substitute <i>word</i></td>
+            <td>substitute <i>word</i></td>
+            <td>substitute null</td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>:+<i>word</i>}</code></td>
+            <td>substitute <i>word</i></td>
+            <td>substitute null</td>
+            <td>substitute null</td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>=<i>word</i>}</code></td>
+            <td>substitute <i>parameter</i></td>
+            <td>substitute null</td>
+            <td>assign <i>word</i></td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>:=<i>word</i>}</code></td>
+            <td>substitute <i>parameter</i></td>
+            <td>assign <i>word</i></td>
+            <td>assign <i>word</i></td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>?<i>word</i>}</code></td>
+            <td>substitute <i>parameter</i></td>
+            <td>error, exit</td>
+            <td>error, exit</td>
+          </tr>
+          <tr>
+            <td><code>${<i>parameter</i>:?<i>word</i>}</code></td>
+            <td>substitute <i>parameter</i></td>
+            <td>substitute null</td>
+            <td>error, exit</td>
+          </tr>
+        </table>
+        <p>
+          <input type="checkbox" checked id="sn-subst-null" class="margin-toggle" />
+          <span class="sidenote">I.e. substitute <i>parameter</i></span>
+        </p>
+      </section>
+
+      <section id="substring">
+        <h2>Substring</h2>
+        <h3><code>${parameter#pattern}</code></h3>
+        <p>
+          Expand to <i>parameter</i> with <b>shortest</b> matching <i>pattern</i> from the beginning deleted.
+        </p>
+        <h3><code>${parameter##pattern}</code></h3>
+        <p>
+          Expand to <i>parameter</i> with <b>longest</b> matching <i>pattern</i> from the beginning deleted.
+        </p>
+        <h3><code>${parameter%pattern}</code></h3>
+        <p>
+          Expand to <i>parameter</i> with <b>shortest</b> matching <i>pattern</i> from the end deleted.
+        </p>
+        <h3><code>${parameter%%pattern}</code></h3>
+        <p>
+          Expand to <i>parameter</i> with <b>longest</b> matching <i>pattern</i> from the end deleted.
+        </p>
+      </section>
+
+      <section id="ref2var">
+        <h2>Reference to Variables</h2>
+        <h3><code>${!word}</code></h3>
+        <p>
+          Expand to variable <code>${word}</code> if defined, error otherwise. Note that <i>word</i> is non-recursive,
+          references like <code>${!operation_${codename}}</code> will fail.
+        </p>
+      </section>
+
+      <section id="references">
+        <h2>References</h2>
+        <p>
+          <a href="http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html">
+            Shell Parameter Expansion (Bash Reference Manual)
+          </a><br>
+          <a href="https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_06_02">
+            Parameter Expansion - Shell Command Language
+          </a><br>
+        </p>
+      </section>
+
+      <section id="contact">
+        <p>
+          <a href="https://github.com/lxvs">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </section>
+
+    </article>
+  </body>
+</html>

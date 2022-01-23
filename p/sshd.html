@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Setup SSH Server in Windows 10 or Windows Server, Online or Offline - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="An easy tutorial on how to setup an SSH server in Windows 10 or Windows Server, online or offline.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>Setup SSH Server in Windows 10 or Windows Server, Online or Offline</h1>
+      <p class="subtitle">
+        June 10, 2021
+        <br>Updated on Jan 2, 2022
+      </p>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#install">Install OpenSSH</a></li>
+          <li><a href="#sshd-config">Tweak Your Configurations</a></li>
+          <li><a href="#service">Enable the Service</a></li>
+          <li><a href="#firewall">Add SSH entry in Windows Firewall</a></li>
+          <li><a href="#default-shell">Change Default Shell for SSH</a></li>
+        </ul>
+      </section>
+
+      <section id="install">
+        <h2 id="install-online">Install OpenSSH Online</h2>
+        <p>
+          Jump to <a href="#install-offline">Install OpenSSH Offline</a> if
+          there is no internet connection.
+        </p>
+        <ol>
+          <li>Press Win + i to open <i>Settings</i></li>
+          <li>
+            Navigate to <i>Apps</i> - <i>Apps & features</i> -
+            <i>Optional features</i>
+          </li>
+          <li>Click <i>Add a feature</i></li>
+          <li>
+            Type <i>openssh</i> in search box to find <i>OpenSSH Server</i>
+          </li>
+          <li>Select it and click <i>Install</i></li>
+        </ol>
+        <br>
+        <h2 id="install-offline">Install OpenSSH Offline</h2>
+        <p>
+          Jump to <a href="#sshd-config">next section</a> if you've installed
+          if online.
+        </p>
+        <ol>
+          <li>
+            Download OpenSSH Win32 (or Win64)
+            <a href="https://github.com/PowerShell/Win32-OpenSSH/releases">in GitHub</a>
+            and unzip it to <code>C:\Windows\System32\OpenSSH</code>
+          </li>
+          <li>
+            Press Win + r, type <code>powershell</code> and press Ctrl + Shift
+            + Enter to run PowerShell as administrator
+          </li>
+          <li>
+            In opened PowerShell, execute below commands
+            <pre><code>cd $env:SystemRoot/System32/OpenSSH
+./install-sshd.ps1</code></pre>
+          </li>
+          <li>
+            If the below is prompted, enter <code>R</code> and press Enter
+            <pre><code>Do you want to run software from this untrusted publisher?
+File C:\Windows\System32\OpenSSH\install-sshd.ps1 is published by CN=Microsoft Corporation, O=Microsoft Corporation,
+L=Redmond, S=Washington, C=US and is not trusted on your system. Only run scripts from trusted publishers.
+[V] Never run  [D] Do not run  [R] Run once  [A] Always run  [?] Help (default is "D"):</code></pre>
+          </li>
+          <li>
+            If succeeds, the below texts will be prompted
+            <pre><code>[SC] SetServiceObjectSecurity SUCCESS
+[SC] ChangeServiceConfig2 SUCCESS
+[SC] ChangeServiceConfig2 SUCCESS
+sshd and ssh-agent services successfully installed</code></pre>
+          </li>
+        </ol>
+      </section>
+
+      <section id="sshd-config">
+        <h2>Tweak Your Configurations</h2>
+        <p>
+          If you want to tweak your SSH server configuration, edit file
+          <code>%ProgramData%\ssh\sshd_config</code>. When troubleshooting,
+          add these to your config can generate a verbose debug log in folder
+          <i>logs</i>.
+          <pre><code>SysLogFacility  LOCAL0
+LogLevel        DEBUG3</code></pre>
+        </p>
+      </section>
+
+      <section id="service">
+        <h2>Enable the Service</h2>
+        <ol>
+          <li>
+            Press Win + r, type <code>services.msc</code> and press Enter.
+          </li>
+          <li>Find <i>OpenSSH SSH Server</i> and double click on it</li>
+          <li>
+            Change its <i>startup type</i> to <i>automatic</i>, click
+            <i>Start</i> and then click <i>OK</i>
+          </li>
+        </ol>
+      </section>
+
+      <section id="firewall">
+        <h2>Add SSH entry in Windows Firewall</h2>
+        <ol>
+          <li>
+            Press Win + r, type <code>wf.msc</code> and press Enter to open
+            Windows Firewall settings
+          </li>
+          <li>In left panel, select <i>inbound rules</i></li>
+          <li>In right panel, select <i>new rule...</i></li>
+          <li>
+            Select <i>port</i> for <i>rule type</i>, and click <i>next</i>
+          </li>
+          <li>
+            Select <i>TCP</i> for <i>protocol</i> and
+            <i>specific local ports</i> for <i>ports</i>, and type
+            <code>22</code><label for="sn-p22" class="margin-toggle sidenote-number"></label>
+            in it
+            <input type="checkbox" id="sn-p22" class="margin-toggle"/>
+            <span class="sidenote">22 is the default port for SSH, if you
+              changed it in your config, fill in yours instead
+            </span>
+          </li>
+          <li>
+            Select <i>allow the connection</i> for <i>action</i> and click
+            <i>next</i>
+          </li>
+          <li>
+            Opt in the network types you would like to open SSH server to and
+            click <i>next</i>
+          </li>
+          <li>Name this rule as you wish</li>
+          <li>Click <i>finish</i></li>
+        </ol>
+        <p>All finished! Now you can connect it using command:</p>
+        <pre><code>ssh username@hostname</code></pre>
+      </section>
+
+      <section id="default-shell">
+        <h2>Change Default Shell for SSH</h2>
+        <p>
+          If you want to use it as a git server,
+          <code>git clone username@hostname:repo.git</code> might fail with
+          below error:
+        </p>
+        <pre><code>'git-upload-pack' is not recognized as an internal or external command,
+operable program or batch file.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.</code></pre>
+        <p>
+          To solve this, you need to change default shell for SSH to
+          <i>Git Bash</i>
+        </p>
+        <p>
+          Run <i>PowerShell</i> as administrator and execute following command.
+          Note that you need replace
+          <code>C:\Program Files\Git\bin\bash.exe</code> with your path to
+          <code>bash.exe</code>
+        </p>
+        <pre><code>New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Program Files\Git\bin\bash.exe" -PropertyType String -Force</code></pre>
+      </section>
+
+      <section id="contact">
+        <p>
+          <a href="https://github.com/lxvs">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </section>
+
+    </article>
+  </body>
+</html>

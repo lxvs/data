@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enable Serial/SOL Output in GNU/Linux Systems</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="A simple tutorial on how to enable serial/SOL output in GNU/Linux systems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>Enable Serial/SOL Output in GNU/Linux Systems</h1>
+      <p class="subtitle">
+        Oct 6, 2021
+      </p>
+
+      <section>
+        <p>RHEL 8 is used in this example.</p>
+        <p>
+          Step 1, enter directory <code>/etc/default</code> and make a
+          backup of file <code>grub</code>.
+        </p>
+        <pre><code>cd /etc/default
+cp grub grub.bak</code></pre>
+        <p>
+          Step 2, edit file <code>/etc/default/grub</code>, in line starting
+          with <code>GRUB_CMDLINE_LINUX=</code>, append
+          <code>console=ttyS0,115200n8 console=tty0</code> within the
+          quotation marks.
+        </p>
+        <p>Step 3, execute below commands.</p>
+        <pre><code>grub2-editenv - unset kernelopts
+grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre>
+      </section>
+      <section>
+        <h2>If Something Is Wrong...</h2>
+        <p>
+          In case that something was did mistakenly in above procedure and
+          the system cannot boot, you can try to boot into single user mode
+          and restore the file <code>grub</code> from <code>grub.bak</code>
+          created in first step, and then redo step 3.
+        </p>
+      </section>
+
+      <section id="contact">
+        <p>
+          <a href="https://github.com/lxvs">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </section>
+
+    </article>
+  </body>
+</html>

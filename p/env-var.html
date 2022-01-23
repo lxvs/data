@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>How to Set Environment Variables in Windows 10 - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="How would a nerd set environment variables in Windows 10?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>How to Set Environment Variables in Windows 10</h1>
+      <p class="subtitle">April 23, 2021</p>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#gow">Good old way</a></li>
+          <li><a href="#nerd">Nerd's way</a></li>
+        </ul>
+      </section>
+
+      <section id="gow">
+        <h2>Good old way</h2>
+        <ol>
+          <li>Press Win + E to open <i>Windows Explorer</i></li>
+          <li>
+            Right click on <i>This PC</i> in the left navigation panel or on
+            the background, and click <i>Properties</i>
+          </li>
+          <li>Click <i>Advanced system settings</i></li>
+          <li>Click <i>Environment Variables...</i></li>
+          <li>
+            Click <i>New</i>. There are two groups of buttons. The above one
+            is for current user, while the below one affects all users using
+            the PC
+          </li>
+          <li>
+            Enter the name and value of the new variable, and then click
+            <i>OK</i>
+          </li>
+        </ol>
+      </section>
+
+      <section id="nerd">
+        <h2>Nerd's way</h2>
+        <p>
+          Press Win + R, enter
+          <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code> and
+          press Enter<label for="sn-cse" class="margin-toggle sidenote-number"></label>.
+          <input type="checkbox" id="sn-cse" class="margin-toggle"/>
+          <span class="sidenote">
+            In Windows 10, press enter when run a process will run it with
+            user privilege. In user privilege you can only change settings
+            for current user. Press Ctrl + Shift + Enter instead to run as
+            administrator.
+          </span>
+        </p>
+      </section>
+
+      <section id="contact">
+        <p>
+          <a href="https://github.com/lxvs">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </section>
+
+    </article>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>C Prime Plus Exercises - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="A handy batch script for C Primer Plus exercises.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>C Prime Plus Exercises</h1>
+      <p class="subtitle"><a href="https://github.com/lxvs/cpp">View on GitHub</a></p>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#introduce">Introduce</a></li>
+          <li><a href="#usage">Usage</a></li>
+          <li><a href="#operations">Operations</a></li>
+          <li><a href="#report">Report Bugs or Suggestions</a></li>
+        </ul>
+      </section>
+
+      <section id="introduce">
+        <h2>Introduce</h2>
+        <p>
+          <code>cpp.bat</code> has 4 operations: <code>init</code>,
+          <code>cl</code>, <code>edit</code>, <code>clean</code>, which can:
+          <ul>
+            <li>Initialize every exercise of a chapter from TEMPLATE</li>
+            <li>Build, run and clean with a single command</li>
+            <li>Edit or create (from TEMPLATE) a C file with your favorite
+              editor</li>
+            <li>Clean C files that unmodified</li>
+          </ul>
+        </p>
+      </section>
+
+      <section id="usage">
+        <h2>Usage</h2>
+        <p class="subtitle">
+          This script is safe and clean, but it's always a good habit to
+          inspect every script before running it.
+        </p>
+        <p>
+          Open <code>_cscratch.bat</code>, and click <i>Yes</i> if
+          <i>User Account Control</i> window popped out (this script needs
+          admin privilege because <code>VsDevCmd.bat</code> needs it).
+        </p>
+        <p>
+          If you encountered errors, see
+          <a href="repo-cscratch#usage">how to configure Cscratch</a>. For
+          more information about <i>Cscratch</i>, see
+          <a href="repo-cscratch">Cscratch document</a>.
+        </p>
+        <h3 id="tweaks">Tweaks</h3>
+        <p>
+          <code>cpp.bat</code> can be tweaked with some environment variables.
+        </p>
+        <table>
+          <tr>
+            <th>Variable</th>
+            <th>Description</th>
+            <th>Default Value</th>
+          </tr>
+          <tr>
+            <td>MIN_CH</td>
+            <td>
+              <b>Minimum</b> valid <b>chapter</b> number; chapter numbers
+              less than <i>MIN_CH</i> will be regarded as invalid
+            </td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>MAX_CH</td>
+            <td>
+              <b>Maximum</b> valid <b>chapter</b> number; chapter numbers
+              greater than <i>MAX_CH</i> will be regarded as invalid
+            </td>
+            <td>17</td>
+          </tr>
+          <tr>
+            <td>MIN_EX</td>
+            <td><b>Minimum</b> valid <b>exercise</b> number</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>MAX_EX</td>
+            <td><b>Maximum</b> valid <b>exercise</b> number</td>
+            <td>99</td>
+          </tr>
+          <tr>
+            <td>TEMPLATE</td>
+            <td>
+              <b>The template used to initialize new exercises.</b> In fact,
+              the initialization of exercises is copying the template to the
+              corresponding location
+            </td>
+            <td>template.c</td>
+          </tr>
+          <tr>
+            <td>DEFAULT_EDITOR</td>
+            <td>The default editor used in <i>edit</i> operation</td>
+            <td>vim</td>
+          </tr>
+        </table>
+        <p>
+          You can modify the variables in either of following methods:
+          <ul>
+            <li>
+              <i>(Recommended)</i> Add them to your environment
+              variables<label for="sn-usg-env" class="margin-toggle sidenote-number"></label>.
+              <input type="checkbox" id="sn-usg-env" class="margin-toggle"/>
+              <span class="sidenote">See <a href="/p/env-var">this article</a> for a tutorial.</span>
+            </li>
+            <li>Change their default values in <code>cpp.bat</code></li>
+            <li>Set the their values in cmd</li>
+          </ul>
+        </p>
+      </section>
+
+      <section id="operations">
+        <h2>Operations</h2>
+        <h3 id="init">init</h3>
+        <pre><code>cpp init &lt;chapter&gt; &lt;number-of-exercises&gt; [&lt;template&gt;]</code></pre>
+        <p>
+          Initialize a new chapter. E.g., to initialize chapter 6,
+          having 18 exercises, use command
+          <code>cpp init 6 18 tamp.c</code>, and following steps will be done:
+        </p>
+        <ul>
+          <li>Create a folder <code>ch-6</code> if not existed</li>
+          <li>
+            Copy <code>temp.c</code> to <code>ch-6\6-1.c</code>,
+            <code>ch-6\6-2.c</code>, ..., <code>ch-6\6-18.c</code>,
+            skipping existed files
+          </li>
+        </ul>
+        <p>
+          If no valid &lt;template&gt; is specified, will use
+          <i>TEMPLATE</i><label for="sn-op-temp" class="margin-toggle sidenote-number"></label>.
+          <input type="checkbox" id="sn-op-temp" class="margin-toggle"/>
+          <span class="sidenote">See <a href="#tweaks">tweaks</a> for more.</span>
+        </p>
+        <p>
+          <b>ERRORLEVEL value</b><br>
+          0: exit expectedly<br>
+          33: number of exercises not specified<br>
+          34/35: chapter number is too low/high<br>
+          36/37: exercise number is too low/high<br>
+          38: no valid &lt;template&gt; is specified, and file <i>TEMPLATE</i>
+          does not exist<br>
+        </p>
+        <br>
+        <h3 id="cl">cl</h3>
+        <pre><code>cpp cl &lt;chapter&gt; &lt;exercise&gt; [run [clean]]</code></pre>
+        <p>
+          Build
+          <code>ch-&lt;chapter&gt;\&lt;chapter&gt;-&lt;exercise&gt;.c</code>.
+          If <i>run</i> is specified, run it if built successfully. If
+          <i>clean</i> is also specified, delete generated <code>.exe</code>
+          and <code>.obj</code> files after running. You can use
+          <code>rc</code> to specify run and clean.
+        </p>
+        <p>
+          <b>ERRORLEVEL Value</b><br>
+          0: exit expectedly<br>
+          65: number of exercises is not provided<br>
+          66/67: chapter number is too low/high<br>
+          68/69: exercise number is too low/high<br>
+          71: the specified C file does not exist
+        </p>
+        <br>
+        <h3 id="edit">edit</h3>
+        <pre><code>cpp edit &lt;chapter&gt; [&lt;exercise&gt; | next] [&lt;editor&gt;]</code></pre>
+        <p>
+          Use &lt;editor&gt; to edit
+          <code>ch-&lt;chpater&gt;\&lt;chapter&gt;-&lt;exercise&gt;</code>.
+          If <i>next</i> is specified, will open the first C file different
+          from <i>TEMPLATE</i>. If all C files are different from
+          <i>TEMPLATE</i>, will create a new C file of next exercise from
+          <i>TEMPLATE</i> and open it with &lt;editor&gt;. If &lt;exercise&gt;
+          and <i>next</i> are both omitted, <i>next</i> is implied. If
+          &lt;editor&gt; is omitted, will use <i>DEFAULT_EDITOR</i>, whose
+          default is vim<label for="sn-vim" class="margin-toggle sidenote-number"></label>.
+          <input type="checkbox" id="sn-vim" class="margin-toggle"/>
+          <span class="sidenote"><a href="https://en.wikipedia.org/wiki/Vim_(text_editor)">Vim (text editor) - Wikipedia</a></span>
+        </p>
+        <br>
+        <h3 id="clean">clean</h3>
+        <pre><code>cpp clean [n | dry]</code></pre>
+        <p>
+          Clean C files that are same with <i>TEMPLATE</i>. If <i>dry</i> or
+          <i>n</i> is specified, won't actually delete anything, just show
+          what would be done.
+        </p>
+        <p>
+          <b>ERRORLEVEL Value</b><br>
+          0: exit expectedly<br>
+          128: argument provided is invalid<br>
+        </p>
+      </section>
+
+      <section id="report">
+        <h2>Report Bugs or Suggestions</h2>
+        <p>
+          Click <a href="https://github.com/lxvs/cpp/issues/new">here</a> to
+          create an issue on GitHub if you meet any bugs or have feature
+          requests.
+        </p>
+      </section>
+
+      <section id="contact">
+        <p>
+          <a href="https://github.com/lxvs">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </section>
+
+    </article>
+  </body>
+</html>
