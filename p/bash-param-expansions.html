@@ -39,57 +39,57 @@
             <th>Unset</th>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>-<i>word</i>}</code></td>
-            <td>substitute <i>parameter</i></td>
+            <td><code>${<em>parameter</em>-<em>word</em>}</code></td>
+            <td>substitute <em>parameter</em></td>
             <td>substitute null<label for="sn-subst-null" class="margin-toggle sidenote-number"></label></td>
-            <td>substitute <i>word</i></td>
+            <td>substitute <em>word</em></td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>:-<i>word</i>}</code></td>
-            <td>substitute <i>parameter</i></td>
-            <td>substitute <i>word</i></td>
-            <td>substitute <i>word</i></td>
+            <td><code>${<em>parameter</em>:-<em>word</em>}</code></td>
+            <td>substitute <em>parameter</em></td>
+            <td>substitute <em>word</em></td>
+            <td>substitute <em>word</em></td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>+<i>word</i>}</code></td>
-            <td>substitute <i>word</i></td>
-            <td>substitute <i>word</i></td>
+            <td><code>${<em>parameter</em>+<em>word</em>}</code></td>
+            <td>substitute <em>word</em></td>
+            <td>substitute <em>word</em></td>
             <td>substitute null</td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>:+<i>word</i>}</code></td>
-            <td>substitute <i>word</i></td>
+            <td><code>${<em>parameter</em>:+<em>word</em>}</code></td>
+            <td>substitute <em>word</em></td>
             <td>substitute null</td>
             <td>substitute null</td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>=<i>word</i>}</code></td>
-            <td>substitute <i>parameter</i></td>
+            <td><code>${<em>parameter</em>=<em>word</em>}</code></td>
+            <td>substitute <em>parameter</em></td>
             <td>substitute null</td>
-            <td>assign <i>word</i></td>
+            <td>assign <em>word</em></td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>:=<i>word</i>}</code></td>
-            <td>substitute <i>parameter</i></td>
-            <td>assign <i>word</i></td>
-            <td>assign <i>word</i></td>
+            <td><code>${<em>parameter</em>:=<em>word</em>}</code></td>
+            <td>substitute <em>parameter</em></td>
+            <td>assign <em>word</em></td>
+            <td>assign <em>word</em></td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>?<i>word</i>}</code></td>
-            <td>substitute <i>parameter</i></td>
+            <td><code>${<em>parameter</em>?<em>word</em>}</code></td>
+            <td>substitute <em>parameter</em></td>
             <td>error, exit</td>
             <td>error, exit</td>
           </tr>
           <tr>
-            <td><code>${<i>parameter</i>:?<i>word</i>}</code></td>
-            <td>substitute <i>parameter</i></td>
+            <td><code>${<em>parameter</em>:?<em>word</em>}</code></td>
+            <td>substitute <em>parameter</em></td>
             <td>substitute null</td>
             <td>error, exit</td>
           </tr>
         </table>
         <p>
           <input type="checkbox" checked id="sn-subst-null" class="margin-toggle" />
-          <span class="sidenote">I.e. substitute <i>parameter</i></span>
+          <span class="sidenote">I.e. substitute <em>parameter</em></span>
         </p>
       </section>
 
@@ -97,19 +97,19 @@
         <h2>Substring</h2>
         <h3><code>${parameter#pattern}</code></h3>
         <p>
-          Expand to <i>parameter</i> with <b>shortest</b> matching <i>pattern</i> from the beginning deleted.
+          Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the beginning deleted.
         </p>
         <h3><code>${parameter##pattern}</code></h3>
         <p>
-          Expand to <i>parameter</i> with <b>longest</b> matching <i>pattern</i> from the beginning deleted.
+          Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the beginning deleted.
         </p>
         <h3><code>${parameter%pattern}</code></h3>
         <p>
-          Expand to <i>parameter</i> with <b>shortest</b> matching <i>pattern</i> from the end deleted.
+          Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the end deleted.
         </p>
         <h3><code>${parameter%%pattern}</code></h3>
         <p>
-          Expand to <i>parameter</i> with <b>longest</b> matching <i>pattern</i> from the end deleted.
+          Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the end deleted.
         </p>
       </section>
 
@@ -117,7 +117,7 @@
         <h2>Reference to Variables</h2>
         <h3><code>${!word}</code></h3>
         <p>
-          Expand to variable <code>${word}</code> if defined, error otherwise. Note that <i>word</i> is non-recursive,
+          Expand to variable <code>${word}</code> if defined, error otherwise. Note that <em>word</em> is non-recursive,
           references like <code>${!operation_${codename}}</code> will fail.
         </p>
       </section>

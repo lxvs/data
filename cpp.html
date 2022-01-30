@@ -56,14 +56,14 @@
           inspect every script before running it.
         </p></em>
         <p>
-          Open <code>_cscratch.bat</code>, and click <i>Yes</i> if
-          <i>User Account Control</i> window popped out (this script needs
+          Open <code>_cscratch.bat</code>, and click <em>Yes</em> if
+          <em>User Account Control</em> window popped out (this script needs
           admin privilege because <code>VsDevCmd.bat</code> needs it).
         </p>
         <p>
           If you encountered errors, see
           <a href="repo-cscratch#usage">how to configure Cscratch</a>. For
-          more information about <i>Cscratch</i>, see
+          more information about <em>Cscratch</em>, see
           <a href="repo-cscratch" target="_blank">Cscratch document</a>.
         </p>
         <h3 id="tweaks">Tweaks</h3>
@@ -79,41 +79,43 @@
           <tr>
             <td>MIN_CH</td>
             <td>
-              <b>Minimum</b> valid <b>chapter</b> number; chapter numbers
-              less than <i>MIN_CH</i> will be regarded as invalid
+              <strong>Minimum</strong> valid <strong>chapter</strong> number;
+              chapter numbers less than <em>MIN_CH</em> will be regarded as
+              invalid
             </td>
             <td>1</td>
           </tr>
           <tr>
             <td>MAX_CH</td>
             <td>
-              <b>Maximum</b> valid <b>chapter</b> number; chapter numbers
-              greater than <i>MAX_CH</i> will be regarded as invalid
+              <strong>Maximum</strong> valid <strong>chapter</strong> number;
+              chapter numbers greater than <em>MAX_CH</em> will be regarded
+              as invalid
             </td>
             <td>17</td>
           </tr>
           <tr>
             <td>MIN_EX</td>
-            <td><b>Minimum</b> valid <b>exercise</b> number</td>
+            <td><strong>Minimum</strong> valid <strong>exercise</strong> number</td>
             <td>1</td>
           </tr>
           <tr>
             <td>MAX_EX</td>
-            <td><b>Maximum</b> valid <b>exercise</b> number</td>
+            <td><strong>Maximum</strong> valid <strong>exercise</strong> number</td>
             <td>99</td>
           </tr>
           <tr>
             <td>TEMPLATE</td>
             <td>
-              <b>The template used to initialize new exercises.</b> In fact,
-              the initialization of exercises is copying the template to the
-              corresponding location
+              <strong>The template used to initialize new exercises.</strong>
+              In fact, the initialization of exercises is copying the template
+              to the corresponding location
             </td>
             <td>template.c</td>
           </tr>
           <tr>
             <td>DEFAULT_EDITOR</td>
-            <td>The default editor used in <i>edit</i> operation</td>
+            <td>The default editor used in <em>edit</em> operation</td>
             <td>vim</td>
           </tr>
         </table>
@@ -121,7 +123,7 @@
           You can modify the variables in either of following methods:
           <ul>
             <li>
-              <i>(Recommended)</i> Add them to your environment
+              (<em>Recommended</em>) Add them to your environment
               variables<label for="sn-usg-env" class="margin-toggle sidenote-number"></label>.
               <input type="checkbox" id="sn-usg-env" class="margin-toggle"/>
               <span class="sidenote">See <a href="/p/env-var" target="_blank">this article</a> for a tutorial.</span>
@@ -151,7 +153,7 @@
         </ul>
         <p>
           If no valid &lt;template&gt; is specified, will use
-          <i>TEMPLATE</i><label for="sn-op-temp" class="margin-toggle sidenote-number"></label>.
+          <em>TEMPLATE</em><label for="sn-op-temp" class="margin-toggle sidenote-number"></label>.
           <input type="checkbox" id="sn-op-temp" class="margin-toggle"/>
           <span class="sidenote">See <a href="#tweaks">tweaks</a> for more.</span>
         </p>
@@ -170,8 +172,8 @@
         <p>
           Build
           <code>ch-&lt;chapter&gt;\&lt;chapter&gt;-&lt;exercise&gt;.c</code>.
-          If <i>run</i> is specified, run it if built successfully. If
-          <i>clean</i> is also specified, delete generated <code>.exe</code>
+          If <em>run</em> is specified, run it if built successfully. If
+          <em>clean</em> is also specified, delete generated <code>.exe</code>
           and <code>.obj</code> files after running. You can use
           <code>rc</code> to specify run and clean.
         </p>
@@ -189,12 +191,12 @@
         <p>
           Use &lt;editor&gt; to edit
           <code>ch-&lt;chpater&gt;\&lt;chapter&gt;-&lt;exercise&gt;</code>.
-          If <i>next</i> is specified, will open the first C file different
-          from <i>TEMPLATE</i>. If all C files are different from
-          <i>TEMPLATE</i>, will create a new C file of next exercise from
-          <i>TEMPLATE</i> and open it with &lt;editor&gt;. If &lt;exercise&gt;
-          and <i>next</i> are both omitted, <i>next</i> is implied. If
-          &lt;editor&gt; is omitted, will use <i>DEFAULT_EDITOR</i>, whose
+          If <em>next</em> is specified, will open the first C file different
+          from <em>TEMPLATE</em>. If all C files are different from
+          <em>TEMPLATE</em>, will create a new C file of next exercise from
+          <em>TEMPLATE</em> and open it with &lt;editor&gt;. If &lt;exercise&gt;
+          and <em>next</em> are both omitted, <em>next</em> is implied. If
+          &lt;editor&gt; is omitted, will use <em>DEFAULT_EDITOR</em>, whose
           default is vim<label for="sn-vim" class="margin-toggle sidenote-number"></label>.
           <input type="checkbox" id="sn-vim" class="margin-toggle"/>
           <span class="sidenote"><a href="https://en.wikipedia.org/wiki/Vim_(text_editor)" target="_blank">Vim (text editor) - Wikipedia</a></span>

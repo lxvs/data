@@ -37,16 +37,17 @@
           there is no internet connection.
         </p>
         <ol>
-          <li>Press Win + i to open <i>Settings</i></li>
+          <li>Press Win + i to open <em>Settings</em></li>
           <li>
-            Navigate to <i>Apps</i> - <i>Apps & features</i> -
-            <i>Optional features</i>
+            Navigate to <em>Apps</em> - <em>Apps & features</em> -
+            <em>Optional features</em>
           </li>
-          <li>Click <i>Add a feature</i></li>
+          <li>Click <em>Add a feature</em></li>
           <li>
-            Type <i>openssh</i> in search box to find <i>OpenSSH Server</i>
+            Type <em>openssh</em> in search box to find
+            <em>OpenSSH Server</em>
           </li>
-          <li>Select it and click <i>Install</i></li>
+          <li>Select it and click <em>Install</em></li>
         </ol>
         <br>
         <h2 id="install-offline">Install OpenSSH Offline</h2>
@@ -92,7 +93,7 @@ sshd and ssh-agent services successfully installed</code></pre>
           If you want to tweak your SSH server configuration, edit file
           <code>%ProgramData%\ssh\sshd_config</code>. When troubleshooting,
           add these to your config can generate a verbose debug log in folder
-          <i>logs</i>.
+          <em>logs</em>.
           <pre><code>SysLogFacility  LOCAL0
 LogLevel        DEBUG3</code></pre>
         </p>
@@ -104,10 +105,10 @@ LogLevel        DEBUG3</code></pre>
           <li>
             Press Win + r, type <code>services.msc</code> and press Enter.
           </li>
-          <li>Find <i>OpenSSH SSH Server</i> and double click on it</li>
+          <li>Find <em>OpenSSH SSH Server</em> and double click on it</li>
           <li>
-            Change its <i>startup type</i> to <i>automatic</i>, click
-            <i>Start</i> and then click <i>OK</i>
+            Change its <em>startup type</em> to <em>automatic</em>, click
+            <em>Start</em> and then click <em>OK</em>
           </li>
         </ol>
       </section>
@@ -119,14 +120,15 @@ LogLevel        DEBUG3</code></pre>
             Press Win + r, type <code>wf.msc</code> and press Enter to open
             Windows Firewall settings
           </li>
-          <li>In left panel, select <i>inbound rules</i></li>
-          <li>In right panel, select <i>new rule...</i></li>
+          <li>In left panel, select <em>inbound rules</em></li>
+          <li>In right panel, select <em>new rule...</em></li>
           <li>
-            Select <i>port</i> for <i>rule type</i>, and click <i>next</i>
+            Select <em>port</em> for <em>rule type</em>, and click
+            <em>next</em>
           </li>
           <li>
-            Select <i>TCP</i> for <i>protocol</i> and
-            <i>specific local ports</i> for <i>ports</i>, and type
+            Select <em>TCP</em> for <em>protocol</em> and
+            <em>specific local ports</em> for <em>ports</em>, and type
             <code>22</code><label for="sn-p22" class="margin-toggle sidenote-number"></label>
             in it
             <input type="checkbox" id="sn-p22" class="margin-toggle"/>
@@ -135,15 +137,15 @@ LogLevel        DEBUG3</code></pre>
             </span>
           </li>
           <li>
-            Select <i>allow the connection</i> for <i>action</i> and click
-            <i>next</i>
+            Select <em>allow the connection</em> for <em>action</em> and
+            click <em>next</em>
           </li>
           <li>
             Opt in the network types you would like to open SSH server to and
-            click <i>next</i>
+            click <em>next</em>
           </li>
           <li>Name this rule as you wish</li>
-          <li>Click <i>finish</i></li>
+          <li>Click <em>finish</em></li>
         </ol>
         <p>All finished! Now you can connect it using command:</p>
         <pre><code>ssh username@hostname</code></pre>
@@ -164,11 +166,11 @@ Please make sure you have the correct access rights
 and the repository exists.</code></pre>
         <p>
           To solve this, you need to change default shell for SSH to
-          <i>Git Bash</i>
+          <em>Git Bash</em>
         </p>
         <p>
-          Run <i>PowerShell</i> as administrator and execute following command.
-          Note that you need replace
+          Run <em>PowerShell</em> as administrator and execute following
+          command. Note that you need replace
           <code>C:\Program Files\Git\bin\bash.exe</code> with your path to
           <code>bash.exe</code>
         </p>
