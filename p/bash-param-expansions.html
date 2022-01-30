@@ -117,9 +117,32 @@
         <h2>Reference to Variables</h2>
         <h3><code>${!word}</code></h3>
         <p>
-          Expand to variable <code>${word}</code> if defined, error otherwise. Note that <em>word</em> is non-recursive,
+          Expand to variable <code>${$word}</code> if it's defined, error otherwise. Note that <em>word</em> is non-recursive;
           references like <code>${!operation_${codename}}</code> will fail.
         </p>
+        <p>Example:</p>
+        <pre><code>$ vairable=value
+
+$ word=variable
+
+$ echo $word
+variable
+
+$echo $vairable
+value
+
+$echo ${!word}
+value
+
+$ codename=blueline
+
+$ operation_blueline=success!
+
+$ echo $operation_blueline
+success!
+
+$ echo ${!operation_$codename}
+bash: ${!operation_$codename}: bad substitution</code></pre>
       </section>
 
       <section id="references">
