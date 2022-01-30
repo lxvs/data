@@ -1,6 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta http-equiv="refresh" content="0; url=https://github.com/lxvs/checksum">
+    <title>Checksum - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="A simpler checksum tool to be integrated to Windows right-click menu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+
+  <body>
+    <article>
+      <h1>
+        Checksum
+      </h1>
+      <p class="subtitle">A simpler checksum tool to be integrated to Windows right-click menu</p>
+      <footer id="time">
+        <time datetime="2021-06-21">June 21, 2021</time>.
+        Updated on <time datetime="2022-01-30">Jan. 30, 2022</time>.
+      </footer>
+      <footer id="ghlink">
+        <a href="https://github.com/lxvs/checksum" target="_blank">View on GitHub</a>
+        | <a href="https://github.com/lxvs/checksum/tags" target="_blank">View releases</a>
+        | <a href="https://github.com/lxvs/checksum/archive/refs/heads/main.zip">Download latest dev version</a>
+      </footer>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#intro">Introduce</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#install">Install</a></li>
+          <li><a href="#shortcut-keys">Shortcut Keys</a></li>
+        </ul>
+      </section>
+
+      <section id="intro">
+        <h2>Introduce</h2>
+        <p>
+          <em>Checksum</em> is a batch script (so it can only used in Windows). It adds items to right-click menu to checksum
+          files of almost all types.
+        </p>
+      </section>
+
+      <section id="how-it-works">
+        <h2>How It Works</h2>
+        <p>
+          It calls the <code>certutil.exe</code><label for="sn-certutil" class="margin-toggle sidenote-number"></label>,
+          <input type="checkbox" id="sn-certutil" class="margin-toggle" />
+          <span class="sidenote">
+            Find more details about <em>certutil</em> on
+            <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil" target="_blank">Microsoft docs for certutil</a>.
+          </span>
+          which is a build-in tool in almost every modern version of Windows, and parses its output.
+        </p>
+      </section>
+
+      <section id="install">
+        <h2>Install</h2>
+        <p><strong>This script is safe and clean, but it's always a good habit to inspect every script before running it.</strong></p>
+        <p><em>
+          If there is already 4.x version installed, please uninstall it with the 4.x installer before installing the 5.x
+          version.
+        </em></p>
+        <ol>
+          <li>
+            <a href="https://github.com/lxvs/checksum/tags" target="_blank">Navigate to releases</a> and download one, or
+            <a href="https://github.com/lxvs/checksum/archive/refs/heads/main.zip">download latest dev version</a>
+          </li>
+          <li>Unzip downloaded package and run <code>deploy.bat</code></li>
+          <li>Select algorithms and options (see details below)</li>
+        </ol>
+        <h3 id="algorithms">Algorithms</h3>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Algorithm</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>MD2</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>MD4</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>MD5</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>SHA1</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>SHA256</td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>SHA384</td>
+          </tr>
+          <tr>
+            <td>64</td>
+            <td>SHA512</td>
+          </tr>
+        </table>
+        <h3 id="options">Options</h3>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Option</th>
+          </tr>
+          <tr>
+            <td>128</td>
+            <td>
+              Cascaded context menu<label for="sn-cascaded-menu" class="margin-toggle sidenote-number"></label>
+            </td>
+          </tr>
+          <tr>
+            <td>256</td>
+            <td>Also add lowercase output mode</td>
+          </tr>
+          <tr>
+            <td>512</td>
+            <td>Also add quietly-copy-to-clipboard mode</td>
+          </tr>
+          <tr>
+            <td>1024</td>
+            <td>Also add write-to-file mode</td>
+          </tr>
+        </table>
+        <p>
+          <input type="checkbox" checked id="sn-cascaded-menu" class="margin-toggle">
+          <span class="sidenote">
+            If cascaded context menu is enabled, at most 16 items can be added.
+          </span>
+        </p>
+        <h3 id="uninstall">Uninstall</h3>
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>Option</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>Uninstall</td>
+          </tr>
+        </table>
+        <p>You can add the <em>ID</em> to select multiple algorithms/options (except <em>uninstall</em>)</p>
+        <p>
+          For example, <code>4+16+128</code> (or <code>148</code>) means to deploy <em>MD5</em>, <em>SHA256</em>, and put them in
+          a sub menu.
+        </p>
+        <p>
+          Peculiarly, a trailing <em>L</em> means <em>lowercase output only</em>, a trailing <em>Y</em> means to deploy
+          directly without confirmation. <em>Y</em> must be placed after <em>L</em> if both are present.
+        </p>
+      </section>
+
+      <section id="shortcut-keys">
+        <h2>Shortcut Keys</h2>
+        <p>
+          If <em>cascaded context menu</em> is <em>not</em> enabled, it will create shortcut keys only for first algorithm (orderd
+          by <em>ID</em>) as follows.
+        </p>
+        <table>
+          <tr>
+            <th>Key</th>
+            <th>Item</th>
+          </tr>
+          <tr>
+            <td>Q</td>
+            <td>Normal mode: display and copy</td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>Write checksum information to file <code>{filename}_{algroithm}.txt</code> and quit</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>Lowercase mode</td>
+          </tr>
+          <tr>
+            <td>K</td>
+            <td>Copy to clipboard and quit</td>
+          </tr>
+        </table>
+        <p>
+          If <em>cascaded context menu</em> is enabled, the submenu's shortcut key would be <em>Q</em>; <em>1</em>, <em>2</em>,
+          <em>3</em>, ...,<em>9</em>, <em>0</em> will be assigned to items in order. Only first 10 items has shortcut keys.
+        </p>
+      </section>
+
+      <address>
+        <p>
+          <a href="https://github.com/lxvs" target="_blank">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </address>
+
+    </article>
+  </body>
 </html>
