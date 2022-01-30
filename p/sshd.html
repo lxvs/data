@@ -14,10 +14,10 @@
   <body>
     <article>
       <h1>Setup SSH Server in Windows 10 or Windows Server, Online or Offline</h1>
-      <p class="subtitle">
-        June 10, 2021
-        <br>Updated on Jan 2, 2022
-      </p>
+      <footer id="time">
+        <time datetime="2021-06-10">June 10, 2021</time>.
+        Updated on <time datetime="2022-01-02">Jan. 2, 2022</time>.
+      </footer>
 
       <section>
         <h2 id="content">Content</h2>
@@ -175,13 +175,10 @@ and the repository exists.</code></pre>
         <pre><code>New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Program Files\Git\bin\bash.exe" -PropertyType String -Force</code></pre>
       </section>
 
-      <section id="contact">
-        <p>
-          <a href="https://github.com/lxvs" target="_blank">GitHub</a> |
-          <a href="mailto:lxvs.net@gmail.com">Email me</a>
-        </p>
-      </section>
-
+      <address>
+        <a href="https://github.com/lxvs" target="_blank">GitHub</a>
+        | <a href="mailto:lxvs.net@gmail.com">Email me</a>
+      </address>
     </article>
   </body>
 </html>
