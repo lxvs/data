@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CloudConf - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="CloudConf: a simple script to let you sync your configurations with your cloud storage for tools like Vim, Rime, Everything and SumatraPDF.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>
+        CloudConf
+      </h1>
+      <p class="subtitle">
+        June 16, 2021. Updated on Jan. 30, 2022
+      </p>
+      <p><a href="https://github.com/lxvs/cloudconf" target="_blank">View on GitHub</a></p>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#intro">Introduce</a></li>
+          <li><a href="#usage">Usage</a></li>
+        </ul>
+      </section>
+
+      <section id="intro">
+        <h2>Introduce</h2>
+        <p>
+          <code>CloudConf</code> is a set of batch scripts to sync your configurations via your cloud storage services (Dropbox,
+          Onedrive, etc.).
+        </p>
+        <p>It creates symbolic links, or copies configurations, to your PCs from your cloud storage.</p>
+        <p>Currently it can only be used in Windows, and supports configurations or these tools:</p>
+        <ul>
+          <li>
+            Vim<label for="sn-vim" class="margin-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-vim" class="margin-toggle" />
+            <span class="sidenote">
+              <a href="https://www.vim.org" target="_blank">Vim official website</a>
+            </span>
+          </li>
+          <li>
+            Rime<label for="sn-rime" class="margin-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-rime" class="margin-toggle" />
+            <span class="sidenote">
+              <a href="https://rime.im" target="_blank">Rime official website</a>
+            </span>
+          </li>
+          <li>
+            Everything<label for="sn-everything" class="margin-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-everything" class="margin-toggle" />
+            <span class="sidenote">
+              <a href="https://www.voidtools.com" target="_blank">Everything official website</a>
+            </span>
+          </li>
+          <li>
+            SumatraPDF<label for="sn-sumatrapdf" class="margin-toggle sidenote-number"></label>
+            <input type="checkbox" id="sn-sumatrapdf" class="margin-toggle" />
+            <span class="sidenote">
+              <a href="https://www.sumatrapdfreader.org/free-pdf-reader" target="_blank">SumatraPDF official website</a>
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="usage">
+        <h2>Usage</h2>
+        <h3>Download latest code</h3>
+        <p>
+          <a href="https://github.com/lxvs/cloudconf/archive/refs/heads/main.zip">Download latest code</a>,
+          and extract the subfolders you need to your cloud storage.
+        </p>
+        <h3>Configure deployment parameters</h3>
+        <ul>
+          <li><a href="#usage-vim">Vim</a></li>
+          <li><a href="#usage-rime">Rime</a></li>
+          <li><a href="#usage-everything">Everything</a></li>
+          <li><a href="#usage-sumatrapdf">SumatraPDF</a></li>
+        </ul>
+
+        <h4 id="usage-vim">Vim</h4>
+        <p>The deployment of <em>Vim</em> can be configured via following 2 files:</p>
+        <ul>
+          <li><a href="#cloudconf-vim-dir">cloudconf-vim-dir.txt</a></li>
+          <li><a href="#cloudconf-vim-ver">cloudconf-vim-ver.txt</a></li>
+        </ul>
+        <h5 id="cloudconf-vim-dir">cloudconf-vim-dir</h5>
+        <p>
+          <code>cloudconf-vim-dir.txt</code> should contain the absolute path to the <em>Vim</em> installation directory.
+          Environment variables are acceptable. Normally it should be <code>%PROGRAMFILES%\Vim</code>, which is the default value
+          when this file is absent. Before reading this file, the deployment script will check if environment variable
+          <code>vimDir</code> is defined. If so, the script will take it and ignore this file. Otherwise, the script reads and set
+          variable <code>vimDir</code> to the content of this file.
+        </p>
+        <p>Example content:</p>
+        <pre><code>%PROGRAMFILES%\Vim</code></pre>
+        <h5 id="cloudconf-vim-ver">cloudconf-vim-ver</h5>
+        <p>
+          <code>cloudconf-vim-ver.txt</code> should contain the version of <em>Vim</em> you are using, i.e. the directory name
+          inside directory <code>vimDir</code>.
+        </p>
+        <p>Example content:</p>
+        <pre><code>vim82</code></pre>
+
+        <h4 id="usage-rime">Rime</h4>
+        <p>The deployment of <em>Rime</em> can be configured via following 4 files:</p>
+        <ul>
+          <li><a href="#cloudconf-rime-dir">cloudconf-rime-dir.txt</a></li>
+          <li><a href="#cloudconf-rime-list-copy">cloudconf-rime-list-copy.txt</a></li>
+          <li><a href="#cloudconf-rime-list-mklink">cloudconf-rime-list-mklink.txt</a></li>
+          <li><a href="#cloudconf-rime-list-userdb">cloudconf-rime-list-userdb.txt</a></li>
+        </ul>
+        <h5 id="cloudconf-rime-dir">cloudconf-rime-dir</h5>
+        <p>
+          <code>cloudconf-rime-dir.txt</code> should contain the absolute path to the <em>Rime</em> personal directory.
+          Environment variables are acceptable. Normally it should be <code>%APPDATA%\Rime</code>, which is the default value when
+          this file is absent. Before reading this file, the deployment script will check if environment variable
+          <code>rimeDir</code> is defined. If so, the script will take it and ignore this file. Otherwise, the script reads and
+          set variable <code>rimeDir</code> to the content of this file.
+        </p>
+        <p>Example content:</p>
+        <pre><code>%APPDATA%\Rime</code></pre>
+        <h5 id="cloudconf-rime-list-copy">cloudconf-rime-list-copy</h5>
+        <p>
+          <code>cloudconf-rime-list-copy.txt</code> should contain a list of files that you intend to <em>copy</em> from the
+          script directory to <code>rimeDir</code>.
+        </p>
+        <p>Example content:</p>
+        <pre><code>default.custom.yaml
+wubi86.custom.yaml</code></pre>
+        <p>
+          If the script is in folder <code>C:\Users\Bob\cloudconf\rime\__rime_deploy.bat</code>, following this configuration, the
+          script will copy <code>c:\Users\Bob\cloudconf\rime\wubi86.custom.yaml</code> and
+          <code>c:\Users\Bob\cloudconf\rime\custom_phrase.txt</code> to directory <code>%APPDATA%\Rime\</code>. That also means
+          you should put your own <code>wubi86.custom.yaml</code> and <code>custom_phrase.txt</code> in the directory
+          <code>c:\Users\Bob\cloudconf\rime\</code>.
+        </p>
+        <h5 id="cloudconf-rime-list-mklink">cloudconf-rime-list-mklink</h5>
+        <p>
+          <code>cloudconf-rime-list-mklink.txt</code> should contain a list of files that you intend to <em>make symbolic
+          links</em> from the script directory to <code>rimeDir</code>.
+        </p>
+        <p>Example content:</p>
+        <pre><code>custom_phrase.txt</code></pre>
+        <p>
+          What this differs from <em>copy</em> is that, when you modify file
+          <code>C:\Users\Bob\cloudconf\rime\custom_phrase.txt</code>, file <code>%APPDATA%\rime\custom_phrase.txt</code> will also
+          be modified, acting as the latter is a shortcut of the former.
+        </p>
+        <h5 id="cloudconf-rime-list-userdb">cloudconf-rime-list-userdb</h5>
+        <p>
+          <code>cloudconf-rime-list-userdb.txt</code> should contain a list of <code>.userdb.txt</code> files that you intend to
+          merge to your local <em>userdb</em>s. They can be found at
+          <code>%APPDATA%\Rime\sync\&lt;user-id&gt;\&lt;schema&gt;.userdb.txt</code>. You need to sync your Rime to generate the latest
+          one.
+        </p>
+
+        <p>Example content:</p>
+        <pre><code>wubi86.userdb.txt</code></pre>
+
+        <h4 id="usage-everything">Everything</h4>
+        <p>The deployment of <em>Everything</em> can be configured via file <code>cloudconf-everything-dir.txt</code>.</p>
+        <p>
+          <code>cloudconf-everything-dir.txt</code> should contain the absolute path to the <em>Everything</em> configuration
+          directory. Environment variables are acceptable. Normally it should be <code>%APPDATA%\Everything</code>, which is the
+          default value when this file is absent. Before reading this file, the deployment script will check if environment
+          variable <code>everythingDir</code> is defined. If so, the script will take it and ignore this file. Otherwise, the
+          script reads and set variable <code>everythingDir</code> to the content of this file.
+        </p>
+        <p>Example content:</p>
+        <pre><code>%APPDATA%\Everything</code></pre>
+
+        <h4 id="usage-sumatrapdf">SumatraPDF</h4>
+        <p>The deployment of <em>SumatraPDF</em> can be configured via file <code>cloudconf-sumatrapdf-dir.txt</code>.</p>
+        <p>
+          <code>cloudconf-sumatrapdf-dir.txt</code> should contain the absolute path to the <em>SumatraPDF</em> configuration
+          directory. Environment variables are acceptable. Normally it should be <code>%LOCALAPPDATA%\SumatraPDF</code>, which is
+          the default value when this file is absent. Before reading this file, the deployment script will check if environment
+          variable <code>sumatrapdfDir</code> is defined. If so, the script will take it and ignore this file. Otherwise, the
+          script reads and set variable <code>sumatrapdfDir</code> to the content of this file.
+        </p>
+        <p>Example content:</p>
+        <pre><code>%LOCALAPPDATA%\SumatraPDF</code></pre>
+      </section>
+
+      <section id="contact">
+        <p>
+          <a href="https://github.com/lxvs" target="_blank">GitHub</a> |
+          <a href="mailto:lxvs.net@gmail.com">Email me</a>
+        </p>
+      </section>
+
+    </article>
+  </body>
+</html>
