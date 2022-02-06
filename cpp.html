@@ -38,14 +38,14 @@
         <p>
           <code>cpp.bat</code> has 4 operations: <code>init</code>,
           <code>cl</code>, <code>edit</code>, <code>clean</code>, which can:
-          <ul>
-            <li>Initialize every exercise of a chapter from TEMPLATE</li>
-            <li>Build, run and clean with a single command</li>
-            <li>Edit or create (from TEMPLATE) a C file with your favorite
-              editor</li>
-            <li>Clean C files that unmodified</li>
-          </ul>
         </p>
+        <ul>
+          <li>Initialize every exercise of a chapter from TEMPLATE</li>
+          <li>Build, run and clean with a single command</li>
+          <li>Edit or create (from TEMPLATE) a C file with your favorite
+            editor</li>
+          <li>Clean C files that unmodified</li>
+        </ul>
       </section>
 
       <section id="usage">
@@ -53,7 +53,7 @@
         <p><em>
           This script is safe and clean, but it's always a good habit to
           inspect every script before running it.
-        </p></em>
+        </em></p>
         <p>
           Open <code>_cscratch.bat</code>, and click <em>Yes</em> if
           <em>User Account Control</em> window popped out (this script needs
@@ -118,23 +118,21 @@
             <td>vim</td>
           </tr>
         </table>
-        <p>
-          You can modify the variables in either of following methods:
-          <ul>
-            <li>
-              (<em>Recommended</em>) Add them to your environment
-              variables<label for="sn-usg-env" class="margin-toggle sidenote-number"></label>.
-              <input type="checkbox" id="sn-usg-env" class="margin-toggle"/>
-              <span class="sidenote">
-                See <a href="/p/env-var" target="_blank">
-                  this article on how to set environment variables in Windows
-                </a> for a tutorial.
-              </span>
-            </li>
-            <li>Change their default values in <code>cpp.bat</code></li>
-            <li>Set the their values in cmd</li>
-          </ul>
-        </p>
+        <p>You can modify the variables in either of following methods:</p>
+        <ul>
+          <li>
+            (<em>Recommended</em>) Add them to your environment
+            variables<label for="sn-usg-env" class="margin-toggle sidenote-number"></label>.
+            <input type="checkbox" id="sn-usg-env" class="margin-toggle"/>
+            <span class="sidenote">
+              See <a href="/p/env-var" target="_blank">
+                this article on how to set environment variables in Windows
+              </a> for a tutorial.
+            </span>
+          </li>
+          <li>Change their default values in <code>cpp.bat</code></li>
+          <li>Set the their values in cmd</li>
+        </ul>
       </section>
 
       <section id="operations">
@@ -186,6 +184,7 @@
             <td>No valid <code>template</code> is specified, and file <em>TEMPLATE</em> does not exist</td>
           </tr>
         </table>
+        <br>
         <h3 id="cl">cl</h3>
         <pre><code>cpp cl &lt;chapter&gt; &lt;exercise&gt; [run [clean]]</code></pre>
         <p>
@@ -222,7 +221,6 @@
             <td>The specified C file does not exist</td>
           </tr>
         </table>
-        </p>
         <br>
         <h3 id="edit">edit</h3>
         <pre><code>cpp edit &lt;chapter&gt; [&lt;exercise&gt; | next] [&lt;editor&gt;]</code></pre>
@@ -247,22 +245,20 @@
           or <em>n</em> is specified, won't actually delete anything, just
           show what would be done.
         </p>
-        <p>
-          <table>
-            <tr>
-              <th>Errorlevel</th>
-              <th>Description</th>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>Exit expectedly</td>
-            </tr>
-            <tr>
-              <td>128</td>
-              <td>Argument provided is invalid</td>
-            </tr>
-          </table>
-        </p>
+        <table>
+          <tr>
+            <th>Errorlevel</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>Exit expectedly</td>
+          </tr>
+          <tr>
+            <td>128</td>
+            <td>Argument provided is invalid</td>
+          </tr>
+        </table>
       </section>
 
       <address>
