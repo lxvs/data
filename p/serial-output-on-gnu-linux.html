@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enable Serial/SOL Output in GNU/Linux Systems - lxvs</title>
+    <title>Enable Serial/SOL Output on GNU/Linux Systems</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="A simple tutorial on how to enable serial/SOL output in GNU/Linux systems.">
+    <meta name="description" content="A simple tutorial on how to enable serial/SOL output on GNU/Linux systems.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
@@ -13,21 +13,38 @@
 
   <body>
     <article>
-      <h1>Enable Serial/SOL Output in GNU/Linux Systems</h1>
+      <h1>Enable Serial/SOL Output on GNU/Linux Systems</h1>
       <footer id="time">
         <time datetime="2021-10-06">Oct. 6, 2021</time>.
-        <!-- Updated on <time datetime=""></time>. -->
+        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
       </footer>
 
       <section>
-        <h2>Steps</h2>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#temporarily">Temporarily</a></li>
+          <li><a href="#permanently">Permanently</a></li>
+        </ul>
+      </section>
+
+      <section id="temporarily">
+        <h2>Temporarily</h2>
+        <p>
+          When system boot to grub menu, press <kbd>e</kbd> to edit boot options, in line starting with
+          <code>GRUB_CMDLINE_LINUX=</code>, append <code>console=ttyS0,115200n8 console=tty0</code> within the quotation marks.
+          Then press <kbd>Ctrl</kbd> + <kbd>x</kbd> to continue to boot.
+        </p>
+      </section>
+
+      <section id="permanently">
+        <h2>Permanently</h2>
         <p>RHEL 8 is used in this example.</p>
         <p>
           Step 1, enter directory <code>/etc/default</code> and make a
           backup of file <code>grub</code>.
         </p>
         <pre><code>cd /etc/default
-cp grub grub.bak</code></pre>
+sudo cp grub grub.bak</code></pre>
         <p>
           Step 2, edit file <code>/etc/default/grub</code>, in line starting
           with <code>GRUB_CMDLINE_LINUX=</code>, append
@@ -35,10 +52,9 @@ cp grub grub.bak</code></pre>
           quotation marks.
         </p>
         <p>Step 3, execute below commands.</p>
-        <pre><code>grub2-editenv - unset kernelopts
-grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre>
-      </section>
-      <section>
+        <pre><code>sudo grub2-editenv - unset kernelopts
+sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre>
+
         <h2>If Something Is Wrong...</h2>
         <p>
           In case that something was did mistakenly in above procedure and
