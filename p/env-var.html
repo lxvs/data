@@ -16,46 +16,46 @@
       <h1>How to Set Environment Variables in Windows 10</h1>
       <footer id="time">
         <time datetime="2021-04-23">Apr. 23, 2021</time>.
-        <!-- Updated on <time datetime=""></time>. -->
+        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
       </footer>
 
       <section>
         <h2 id="content">Content</h2>
         <ul>
-          <li><a href="#gow">Good old way</a></li>
-          <li><a href="#nerd">Nerd's way</a></li>
+          <li><a href="#the-good-old-way">The Good Old Way</a></li>
+          <li><a href="#the-nerdy-way">The Nerdy Way</a></li>
         </ul>
       </section>
 
-      <section id="gow">
-        <h2>Good old way</h2>
+      <section id="the-good-old-way">
+        <h2>The Good Old Way</h2>
         <ol>
-          <li>Press Win + E to open <em>Windows Explorer</em></li>
+          <li>Press <kbd>Win</kbd> + <kbd>e</kbd> to open <em>Windows Explorer</em>.</li>
           <li>
             Right click on <em>This PC</em> in the left navigation panel or on
-            the background, and click <em>Properties</em>
+            the background, and click <em>Properties</em>.
           </li>
-          <li>Click <em>Advanced system settings</em></li>
-          <li>Click <em>Environment Variables...</em></li>
+          <li>Click <em>Advanced system settings</em>.</li>
+          <li>Click <em>Environment Variables...</em>.</li>
           <li>
             Click <em>New</em>. There are two groups of buttons. The above one
             is for current user, while the below one affects all users using
-            the PC
+            the PC.
           </li>
           <li>
             Enter the name and value of the new variable, and then click
-            <em>OK</em>
+            <em>OK</em>.
           </li>
         </ol>
       </section>
 
-      <section id="nerd">
-        <h2>Nerd's way</h2>
+      <section id="the-nerdy-way">
+        <h2>The Nerdy Way</h2>
         <p>
-          Press Win + R, enter
+          Press <kbd>Win</kbd> + <kbd>r</kbd>, enter
           <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code> and
-          press Enter<label for="sn-cse" class="margin-toggle sidenote-number"></label>.
-          <input type="checkbox" id="sn-cse" class="margin-toggle"/>
+          press Enter<label for="sn-ctrl-shift-enter" class="margin-toggle sidenote-number"></label>.
+          <input type="checkbox" id="sn-ctrl-shift-enter" class="margin-toggle"/>
           <span class="sidenote">
             In Windows 10, press enter when run a process will run it with
             user privilege. In user privilege you can only change settings
