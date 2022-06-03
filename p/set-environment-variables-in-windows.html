@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>How to Set Environment Variables in Windows 10 - lxvs</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="How would a nerd set environment variables in Windows 10?">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <article>
+      <h1>How to Set Environment Variables in Windows 10</h1>
+      <footer id="time">
+        <time datetime="2021-04-23">Apr. 23, 2021</time>.
+        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
+      </footer>
+
+      <section>
+        <h2 id="content">Content</h2>
+        <ul>
+          <li><a href="#the-good-old-way">The Good Old Way</a></li>
+          <li><a href="#the-nerdy-way">The Nerdy Way</a></li>
+        </ul>
+      </section>
+
+      <section id="the-good-old-way">
+        <h2>The Good Old Way</h2>
+        <ol>
+          <li>Press <kbd>Win</kbd> + <kbd>e</kbd> to open <em>Windows Explorer</em>.</li>
+          <li>
+            Right click on <em>This PC</em> in the left navigation panel or on
+            the background, and click <em>Properties</em>.
+          </li>
+          <li>Click <em>Advanced system settings</em>.</li>
+          <li>Click <em>Environment Variables...</em>.</li>
+          <li>
+            Click <em>New</em>. There are two groups of buttons. The above one
+            is for current user, while the below one affects all users using
+            the PC.
+          </li>
+          <li>
+            Enter the name and value of the new variable, and then click
+            <em>OK</em>.
+          </li>
+        </ol>
+      </section>
+
+      <section id="the-nerdy-way">
+        <h2>The Nerdy Way</h2>
+        <p>
+          Press <kbd>Win</kbd> + <kbd>r</kbd>, enter
+          <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code> and
+          press Enter<label for="sn-ctrl-shift-enter" class="margin-toggle sidenote-number"></label>.
+          <input type="checkbox" id="sn-ctrl-shift-enter" class="margin-toggle"/>
+          <span class="sidenote">
+            In Windows 10, press enter when run a process will run it with
+            user privilege. In user privilege you can only change settings
+            for current user. Press Ctrl + Shift + Enter instead to run as
+            administrator.
+          </span>
+        </p>
+      </section>
+
+      <address>
+        <a href="https://github.com/lxvs" target="_blank">GitHub</a>
+        | <a href="mailto:lxvs.net@gmail.com">Email me</a>
+      </address>
+    </article>
+  </body>
+</html>
