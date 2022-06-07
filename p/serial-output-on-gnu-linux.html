@@ -31,7 +31,13 @@
         <h2>Temporarily</h2>
         <p>
           When system boot to grub menu, press <kbd>e</kbd> to edit boot options, in line starting with
-          <code>linux ($root)/vmlinuz-</code>, append <code>console=ttyS0,115200n8 console=tty0</code> to the end.
+          <code>linux ($root)/vmlinuz-</code>, append
+          <code>console=ttyS0,115200n8 console=tty0</code><label for="sn-console-opts" class="margin-toggle sidenote-number"></label>
+          to the end.
+          <input type="checkbox" id="sn-console-opts" class="margin-toggle" />
+          <span class="sidenote">
+            This is for most commonly used modern BIOS, but it should match your BIOS settings in case yours are different.
+          </span>
           Then press <kbd>Ctrl</kbd> + <kbd>x</kbd> to continue to boot.
         </p>
       </section>
