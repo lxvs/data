@@ -54,8 +54,12 @@ sudo cp grub grub.bak</code></pre>
         <p>
           Step 2, edit file <code>/etc/default/grub</code>, in line starting
           with <code>GRUB_CMDLINE_LINUX=</code>, append
-          <code>console=ttyS0,115200n8 console=tty0</code> within the
-          quotation marks.
+          <code>console=ttyS0,115200n8 console=tty0</code><label for="sn-console-opts-1" class="margin-toggle sidenote-number"></label>
+          within the quotation marks.
+          <input type="checkbox" id="sn-console-opts-1" class="margin-toggle" />
+          <span class="sidenote">
+            This is for most commonly used modern BIOS, but it should match your BIOS settings in case yours are different.
+          </span>
         </p>
         <p>Step 3, execute below commands.</p>
         <pre><code>sudo grub2-editenv - unset kernelopts
