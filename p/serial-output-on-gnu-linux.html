@@ -16,7 +16,7 @@
       <h1>Enable Serial/SOL Output on GNU/Linux Systems</h1>
       <footer id="time">
         <time datetime="2021-10-06">Oct. 6, 2021</time>.
-        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
+        Updated on <time datetime="2022-06-07">June 7, 2022</time>.
       </footer>
 
       <section>
@@ -31,7 +31,7 @@
         <h2>Temporarily</h2>
         <p>
           When system boot to grub menu, press <kbd>e</kbd> to edit boot options, in line starting with
-          <code>GRUB_CMDLINE_LINUX=</code>, append <code>console=ttyS0,115200n8 console=tty0</code> within the quotation marks.
+          <code>linux ($root)/vmlinuz-</code>, append <code>console=ttyS0,115200n8 console=tty0</code> to the end.
           Then press <kbd>Ctrl</kbd> + <kbd>x</kbd> to continue to boot.
         </p>
       </section>
