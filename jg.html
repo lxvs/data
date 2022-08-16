@@ -15,8 +15,7 @@
     <article>
       <h1>Johnny's Git Kit</h1>
       <footer id="time">
-        <time datetime="2022-01-23">Jan. 23, 2022</time>.
-        <!-- Updated on <time datetime=""></time>. -->
+        Updated on <time datetime="2022-08-16">August 16, 2022</time>.
       </footer>
       <footer id="ghlink">
         <a href="https://github.com/lxvs/jg" target="_blank">View on GitHub</a>
@@ -35,35 +34,36 @@
       <section id="introduction">
         <h2>Introduction</h2>
         <p>
-          Johnny's Git Kit, or <em>jg</em>, is a bash script providing
-          several handy commands for git, including
+          Johnny's Git Kit, or <em>jg</em>, is a POSIX compliant shell script
+          providing several enhancements for git usage, including:
         </p>
         <ul>
-          <li>Do something for all git repositories in current directory</li>
+          <li>Create a GitHub repository in command line interface!</li>
+          <li>Better views of git log!</li>
+          <li>Create a tarball with all submodules!</li>
           <li>
-            Diff with beyond compare<label for="sn-bcd" class="margin-toggle sidenote-number"></label>
+            Diff with Beyond Compare! <label for="sn-bcd" class="margin-toggle sidenote-number"></label>
             <input type="checkbox" id="sn-bcd" class="margin-toggle" />
             <span class="sidenote">
               Only supported in Windows for now.
             </span>
           </li>
           <li>
-            merge conflicts with beyond compare<label for="sn-bcm" class="margin-toggle sidenote-number"></label>
+            Resolve merge conflicts with Beyond Compare! <label for="sn-bcm" class="margin-toggle sidenote-number"></label>
             <input type="checkbox" id="sn-bcm" class="margin-toggle" />
             <span class="sidenote">
               Only supported in Windows for now.
             </span>
           </li>
           <li>
-            Get a git commit by Gerrit Change-Id<label for="sn-chid" class="margin-toggle sidenote-number"></label>
+            Query a git commit using a Gerrit Change-Id<label for="sn-chid" class="margin-toggle sidenote-number"></label> pattern!
             <input type="checkbox" id="sn-chid" class="margin-toggle" />
             <span class="sidenote">
               For details, see <a href="https://gerrit-review.googlesource.com/Documentation/user-changeid.html" target="_blank">Gerrit Code Review - Change-Ids</a>
             </span>
           </li>
-          <li>Push commits to Gerrit</li>
-          <li>A better view of git log!</li>
-          <li>Create a GitHub repository in command line!</li>
+          <li>Push local commits to Gerrit without typing <code>refs/for/</code>!</li>
+          <li>Do something for each git repository in a directory!</li>
         </ul>
       </section>
 
