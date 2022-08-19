@@ -4,10 +4,7 @@
     <title>How to Install an Old Version of Python on Debian or Ubuntu</title>
     <meta charset="utf-8"/>
     <!-- <meta name="description" content=""> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -15,8 +12,7 @@
     <article>
       <h1>How to Install an Old Version of Python on Debian or Ubuntu</h1>
       <footer id="time">
-        <time datetime="2022-06-03">June 3, 2022</time>.
-        <!-- Updated on <time datetime=""></time>. -->
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
 
       <section>
@@ -80,15 +76,9 @@ lrwxrwxrwx 1 root root        9 Jun  3 12:06 /usr/local/bin/python3 -> python3.7
 -rwxr-xr-x 2 root root 15329120 Jun  3 12:06 /usr/local/bin/python3.7</code></pre>
         <p>
           Maybe there are some apps in your system relying on python 3.9.2 and you don't want to disrupt them, in which case, you
-          can remove the symbolic link in <code>/usr/local/bin</code>, which is created during
-          installation.<label for="sn-specify-version" class="margin-toggle sidenote-number"></label>
-        </p>
-        <p>
-          <input type="checkbox" id="sn-specify-version" class="margin-toggle" />
-          <span class="sidenote">
-            You can always explicitly specify which version you want to use by using <code>python3.7</code>
-            or <code>python3.9</code> instead of <code>python3</code>.
-          </span>
+          can remove the symbolic link in <code>/usr/local/bin</code>, which is created during installation. Note that you can
+          always explicitly specify which version you want to use by using <code>python3.7</code> or <code>python3.9</code> instead
+          of <code>python3</code>.
         </p>
         <pre><code>$ sudo rm /usr/local/bin/python3</code></pre>
         <p>However, if you use command <code>python3</code> now, you will get an error:</p>

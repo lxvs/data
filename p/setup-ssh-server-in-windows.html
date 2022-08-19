@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Setup SSH Server in Windows 10 or Windows Server, Online or Offline - lxvs</title>
+    <title>Setup SSH Server in Windows 10 or Windows Server, Online or Offline</title>
     <meta charset="utf-8"/>
     <meta name="description" content="An easy tutorial on how to setup an SSH server in Windows 10 or Windows Server, online or offline.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -15,8 +12,7 @@
     <article>
       <h1>Setup SSH Server in Windows 10 or Windows Server, Online or Offline</h1>
       <footer id="time">
-        <time datetime="2021-06-10">June 10, 2021</time>.
-        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
 
       <section>
@@ -130,12 +126,8 @@ LogLevel        DEBUG3</code></pre>
           <li>
             Select <em>TCP</em> for <em>protocol</em> and
             <em>specific local ports</em> for <em>ports</em>, and type
-            <code>22</code><label for="sn-p22" class="margin-toggle sidenote-number"></label>
-            in it.
-            <input type="checkbox" id="sn-p22" class="margin-toggle"/>
-            <span class="sidenote">22 is the default port for SSH, if you
-              changed it in your config, fill in yours instead
-            </span>
+            <code>22</code> in it. 22 is the default port for SSH, if you
+            changed it in your config, fill in yours instead.
           </li>
           <li>
             Select <em>allow the connection</em> for <em>action</em> and

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>How to Set Environment Variables in Windows 10 - lxvs</title>
+    <title>How to Set Environment Variables in Windows 10</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="How would a nerd set environment variables in Windows 10?">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="description" content="Open Windows environment variable settings with one step!">
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -15,17 +12,9 @@
     <article>
       <h1>How to Set Environment Variables in Windows 10</h1>
       <footer id="time">
-        <time datetime="2021-04-23">Apr. 23, 2021</time>.
-        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
-
-      <section>
-        <h2 id="content">Content</h2>
-        <ul>
-          <li><a href="#the-good-old-way">The Good Old Way</a></li>
-          <li><a href="#the-nerdy-way">The Nerdy Way</a></li>
-        </ul>
-      </section>
+      <p style="font-style: italic">Also applicable to Windows 11 and Windows Server 2016/2019/2022.</p>
 
       <section id="the-good-old-way">
         <h2>The Good Old Way</h2>
@@ -51,17 +40,10 @@
 
       <section id="the-nerdy-way">
         <h2>The Nerdy Way</h2>
+        <p>Press <kbd>Win</kbd> + <kbd>r</kbd>, enter <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code> and press Enter.</p>
         <p>
-          Press <kbd>Win</kbd> + <kbd>r</kbd>, enter
-          <code>rundll32.exe sysdm.cpl,EditEnvironmentVariables</code> and
-          press Enter<label for="sn-ctrl-shift-enter" class="margin-toggle sidenote-number"></label>.
-          <input type="checkbox" id="sn-ctrl-shift-enter" class="margin-toggle"/>
-          <span class="sidenote">
-            In Windows 10, press enter when run a process will run it with
-            user privilege. In user privilege you can only change settings
-            for current user. Press Ctrl + Shift + Enter instead to run as
-            administrator.
-          </span>
+          Note that pressing <kbd>Enter</kbd> will run a task with user privilege, where you can only change settings for current user.
+          Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> instead to run it as administrator.
         </p>
       </section>
 

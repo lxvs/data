@@ -4,10 +4,7 @@
     <title>Enable Serial/SOL Output on GNU/Linux Systems</title>
     <meta charset="utf-8"/>
     <meta name="description" content="A simple tutorial on how to enable serial/SOL output on GNU/Linux systems.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -15,8 +12,7 @@
     <article>
       <h1>Enable Serial/SOL Output on GNU/Linux Systems</h1>
       <footer id="time">
-        <time datetime="2021-10-06">Oct. 6, 2021</time>.
-        Updated on <time datetime="2022-06-07">June 7, 2022</time>.
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
 
       <section>
@@ -32,12 +28,7 @@
         <p>
           When system boot to grub menu, press <kbd>e</kbd> to edit boot options, in the line starting with
           <code>linux ($root)/vmlinuz-</code>, append <code>console=ttyS0,115200n8 console=tty0</code> to the
-          end.<label for="sn-console-opts" class="margin-toggle sidenote-number"></label> Then press <kbd>Ctrl</kbd> +
-          <kbd>x</kbd> to continue to boot.
-          <input type="checkbox" id="sn-console-opts" class="margin-toggle" />
-          <span class="sidenote">
-            This is for most commonly used modern BIOS, but it should match your BIOS settings in case yours are different.
-          </span>
+          end. Then press <kbd>Ctrl</kbd> + <kbd>x</kbd> to continue to boot.
         </p>
       </section>
 
@@ -54,11 +45,7 @@ sudo cp grub grub.bak</code></pre>
           Step 2, edit file <code>/etc/default/grub</code>, in line starting
           with <code>GRUB_CMDLINE_LINUX=</code>, append
           <code>console=ttyS0,115200n8 console=tty0</code> within the quotation
-          marks.<label for="sn-console-opts-1" class="margin-toggle sidenote-number"></label>
-          <input type="checkbox" id="sn-console-opts-1" class="margin-toggle" />
-          <span class="sidenote">
-            This is for most commonly used modern BIOS, but it should match your BIOS settings in case yours are different.
-          </span>
+          marks.
         </p>
         <p>Step 3, execute below commands.</p>
         <pre><code>sudo grub2-editenv - unset kernelopts

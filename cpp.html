@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>C Prime Plus Exercises - lxvs</title>
+    <title>C Prime Plus Exercises</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="A handy batch script for C Primer Plus exercises.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="description" content="A batch script for C Primer Plus exercises">
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
@@ -15,8 +12,7 @@
     <article>
       <h1>C Prime Plus Exercises</h1>
       <footer id="time">
-        <time datetime="2021-04-02">Apr. 2, 2021</time>.
-        <!-- Updated on <time datetime=""></time>. -->
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
       <footer id="ghlink">
         <a href="https://github.com/lxvs/cpp" target="_blank">View on GitHub</a>
@@ -35,36 +31,24 @@
 
       <section id="introduction">
         <h2>Introduction</h2>
-        <p>
-          <code>cpp.bat</code> has 4 operations: <code>init</code>,
-          <code>cl</code>, <code>edit</code>, <code>clean</code>, which can:
-        </p>
+        <p><code>cpp.bat</code> has 4 operations: <code>init</code>, <code>cl</code>, <code>edit</code>, <code>clean</code>, which can:</p>
         <ul>
           <li>Initialize every exercise of a chapter from TEMPLATE</li>
           <li>Build, run and clean with a single command</li>
-          <li>Edit or create (from TEMPLATE) a C file with your favorite
-            editor</li>
+          <li>Edit or create (from TEMPLATE) a C file with your favorite editor</li>
           <li>Clean C files that unmodified</li>
         </ul>
       </section>
 
       <section id="usage">
         <h2>Usage</h2>
-        <p><em>
-          This script is safe and clean, but it's always a good habit to
-          inspect every script before running it.
-        </em></p>
+        <p style="font-style: italic">This script is safe and clean, but it's always a good habit to inspect every script before running it.</p>
         <p>
           Open <code>_cscratch.bat</code>, and click <em>Yes</em> if
           <em>User Account Control</em> window popped out (this script needs
           admin privilege because <code>VsDevCmd.bat</code> needs it).
         </p>
-        <p>
-          If you encountered errors, see
-          <a href="repo-cscratch#usage">how to configure Cscratch</a>. For
-          more information about <em>Cscratch</em>, see
-          <a href="repo-cscratch" target="_blank">Cscratch document</a>.
-        </p>
+        <p>For more information on Cscratch, see <a href="https://github.com/lxvs/cscratch" target="_blank">Cscratch on GitHub</a>.</p>
         <h3 id="tweaks">Tweaks</h3>
         <p>
           <code>cpp.bat</code> can be tweaked with some environment variables.
@@ -121,14 +105,8 @@
         <p>You can modify the variables in either of following methods:</p>
         <ul>
           <li>
-            (<em>Recommended</em>) Add them to your environment
-            variables<label for="sn-usg-env" class="margin-toggle sidenote-number"></label>.
-            <input type="checkbox" id="sn-usg-env" class="margin-toggle"/>
-            <span class="sidenote">
-              See <a href="/p/env-var" target="_blank">
-                this article on how to set environment variables in Windows
-              </a> for a tutorial.
-            </span>
+            (<em>Recommended</em>) Add them to your environment variables.
+            See <a href="/p/set-environment-variables-in-windows" target="_blank">this article on how to set environment variables in Windows</a>.
           </li>
           <li>Change their default values in <code>cpp.bat</code></li>
           <li>Set the their values in cmd</li>
@@ -152,12 +130,7 @@
             skipping existed files
           </li>
         </ul>
-        <p>
-          If no valid &lt;template&gt; is specified, will use
-          <em>TEMPLATE</em><label for="sn-op-temp" class="margin-toggle sidenote-number"></label>.
-          <input type="checkbox" id="sn-op-temp" class="margin-toggle"/>
-          <span class="sidenote">See <a href="#tweaks">tweaks</a> for more.</span>
-        </p>
+        <p>If no valid &lt;template&gt; is specified, will use <em>TEMPLATE</em>. See <a href="#tweaks">tweaks</a> for more.</p>
         <table>
           <tr>
             <th>Errorlevel</th>
@@ -184,7 +157,6 @@
             <td>No valid <code>template</code> is specified, and file <em>TEMPLATE</em> does not exist</td>
           </tr>
         </table>
-        <br>
         <h3 id="cl">cl</h3>
         <pre><code>cpp cl &lt;chapter&gt; &lt;exercise&gt; [run [clean]]</code></pre>
         <p>
@@ -221,7 +193,6 @@
             <td>The specified C file does not exist</td>
           </tr>
         </table>
-        <br>
         <h3 id="edit">edit</h3>
         <pre><code>cpp edit &lt;chapter&gt; [&lt;exercise&gt; | next] [&lt;editor&gt;]</code></pre>
         <p>
@@ -233,11 +204,8 @@
           <em>TEMPLATE</em> and open it with &lt;editor&gt;. If &lt;exercise&gt;
           and <em>next</em> are both omitted, <em>next</em> is implied. If
           &lt;editor&gt; is omitted, will use <em>DEFAULT_EDITOR</em>, whose
-          default is vim<label for="sn-vim" class="margin-toggle sidenote-number"></label>.
-          <input type="checkbox" id="sn-vim" class="margin-toggle"/>
-          <span class="sidenote"><a href="https://en.wikipedia.org/wiki/Vim_(text_editor)" target="_blank">Vim (text editor) - Wikipedia</a></span>
+          default is vim.
         </p>
-        <br>
         <h3 id="clean">clean</h3>
         <pre><code>cpp clean [n | dry]</code></pre>
         <p>

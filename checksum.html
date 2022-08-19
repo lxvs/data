@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Checksum - lxvs</title>
+    <title>Checksum for Windows Right-Click Menu</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="A simpler checksum tool to be integrated to Windows right-click menu.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="description" content="Retired and replaced by Winchecksum Wrapper">
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
     <article>
       <h1>
-        Checksum
+        Checksum for Windows Right-Click Menu
       </h1>
       <p class="subtitle">A simpler checksum tool to be integrated to Windows right-click menu</p>
       <footer id="time">
-        <time datetime="2021-06-21">June 21, 2021</time>.
-        Updated on <time datetime="2022-06-03">June 3, 2022</time>.
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
       <footer id="ghlink">
         <a href="https://github.com/lxvs/checksum" target="_blank">View on GitHub</a>
         | <a href="https://github.com/lxvs/checksum/tags" target="_blank">View releases</a>
         | <a href="https://github.com/lxvs/checksum/archive/refs/heads/main.zip">Download latest dev version</a>
       </footer>
+      <p style="font-style: italic">This project has retired and been superceded by <a href="winchecksumwrapper">Winchecksum Wrapper</a>.</p>
 
       <section>
         <h2 id="content">Content</h2>
@@ -47,24 +44,13 @@
 
       <section id="how-it-works">
         <h2>How It Works</h2>
-        <p>
-          It calls the <code>certutil.exe</code><label for="sn-certutil" class="margin-toggle sidenote-number"></label>,
-          <input type="checkbox" id="sn-certutil" class="margin-toggle" />
-          <span class="sidenote">
-            Find more details about <em>certutil</em> on
-            <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil" target="_blank">Microsoft docs for certutil</a>.
-          </span>
-          which is a build-in tool in almost every modern version of Windows, and parses its output.
-        </p>
+        <p>It calls the <em>certutil.exe</em>, which is a build-in tool in almost every modern version of Windows, and parses its output. See <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/certutil" target="_blank">Microsoft docs for certutil</a> for more information.</p>
       </section>
 
       <section id="install">
         <h2>Install</h2>
-        <p><strong>This script is safe and clean, but it's always a good habit to inspect every script before running it.</strong></p>
-        <p><em>
-          If there is already 4.x version installed, please uninstall it with the 4.x installer before installing the 5.x
-          version.
-        </em></p>
+        <p style="font-style: italic">This script is safe and clean, but it's always a good habit to inspect every script before running it.</p>
+        <p style="font-style: italic">If there is already 4.x version installed, please uninstall it with the 4.x installer before installing the 5.x version.</p>
         <ol>
           <li>
             <a href="https://github.com/lxvs/checksum/tags" target="_blank">Navigate to releases</a> and download one, or
@@ -116,9 +102,7 @@
           </tr>
           <tr>
             <td>128</td>
-            <td>
-              Cascaded context menu<label for="sn-cascaded-menu" class="margin-toggle sidenote-number"></label>
-            </td>
+            <td>Cascaded context menu</td>
           </tr>
           <tr>
             <td>256</td>
@@ -133,12 +117,7 @@
             <td>Also add write-to-file mode</td>
           </tr>
         </table>
-        <p>
-          <input type="checkbox" checked id="sn-cascaded-menu" class="margin-toggle">
-          <span class="sidenote">
-            If cascaded context menu is enabled, at most 16 items can be added.
-          </span>
-        </p>
+        <p>Note that if cascaded context menu is enabled, at most 16 items can be added.</p>
         <h3 id="uninstall">Uninstall</h3>
         <table>
           <tr>
@@ -178,7 +157,7 @@
           </tr>
           <tr>
             <td>F</td>
-            <td>Write checksum information to file <code>{filename}_{algroithm}.txt</code> and quit</td>
+            <td>Write checksum information to file <em>filename</em>_<em>algroithm</em>.txt and quit</td>
           </tr>
           <tr>
             <td>L</td>

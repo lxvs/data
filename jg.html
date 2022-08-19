@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Johnny's Git Kit - lxvs</title>
+    <title>Johnny's Git Kit (jg)</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="jg (Johnny's Git kit) is a bunch of shell scripts to provide a handier git for you!">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/tufte.css"/>
+    <meta name="description" content="Make Git better">
+    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
     <article>
-      <h1>Johnny's Git Kit</h1>
+      <h1>Johnny's Git Kit (jg)</h1>
       <footer id="time">
-        Updated on <time datetime="2022-08-16">August 16, 2022</time>.
+        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
       </footer>
       <footer id="ghlink">
         <a href="https://github.com/lxvs/jg" target="_blank">View on GitHub</a>
@@ -33,35 +30,14 @@
 
       <section id="introduction">
         <h2>Introduction</h2>
-        <p>
-          Johnny's Git Kit, or <em>jg</em>, is a POSIX compliant shell script
-          providing several enhancements for git usage, including:
-        </p>
+        <p>Johnny's Git Kit, or <em>jg</em>, is a POSIX compliant shell script providing several enhancements for git usage, including:</p>
         <ul>
           <li>Create a GitHub repository in command line interface!</li>
           <li>Better views of git log!</li>
           <li>Create a tarball with all submodules!</li>
-          <li>
-            Diff with Beyond Compare! <label for="sn-bcd" class="margin-toggle sidenote-number"></label>
-            <input type="checkbox" id="sn-bcd" class="margin-toggle" />
-            <span class="sidenote">
-              Only supported in Windows for now.
-            </span>
-          </li>
-          <li>
-            Resolve merge conflicts with Beyond Compare! <label for="sn-bcm" class="margin-toggle sidenote-number"></label>
-            <input type="checkbox" id="sn-bcm" class="margin-toggle" />
-            <span class="sidenote">
-              Only supported in Windows for now.
-            </span>
-          </li>
-          <li>
-            Query a git commit using a Gerrit Change-Id<label for="sn-chid" class="margin-toggle sidenote-number"></label> pattern!
-            <input type="checkbox" id="sn-chid" class="margin-toggle" />
-            <span class="sidenote">
-              For details, see <a href="https://gerrit-review.googlesource.com/Documentation/user-changeid.html" target="_blank">Gerrit Code Review - Change-Ids</a>
-            </span>
-          </li>
+          <li>Diff with Beyond Compare!</li>
+          <li>Resolve merge conflicts with Beyond Compare!</li>
+          <li>Query a git commit using a Gerrit Change-Id pattern!</li>
           <li>Push local commits to Gerrit without typing <code>refs/for/</code>!</li>
           <li>Do something for each git repository in a directory!</li>
         </ul>
