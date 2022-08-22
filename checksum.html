@@ -10,19 +10,15 @@
 
   <body>
     <article>
-      <h1>
-        Checksum for Windows Right-Click Menu
-      </h1>
+      <h1>Checksum for Windows Right-Click Menu</h1>
       <p class="subtitle">A simpler checksum tool to be integrated to Windows right-click menu</p>
-      <footer id="time">
-        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
-      </footer>
+      <footer id="time">Updated on <time datetime="2022-08-22">August 22, 2022</time>.</footer>
       <footer id="ghlink">
         <a href="https://github.com/lxvs/checksum" target="_blank">View on GitHub</a>
         | <a href="https://github.com/lxvs/checksum/tags" target="_blank">View releases</a>
         | <a href="https://github.com/lxvs/checksum/archive/refs/heads/main.zip">Download latest dev version</a>
       </footer>
-      <p style="font-style: italic">This project has retired and been superceded by <a href="winchecksumwrapper" target="_blank">Winchecksum Wrapper</a>.</p>
+      <p style="font-style: italic">This project has retired and been superseded by <a href="winchecksumwrapper" target="_blank">Winchecksum Wrapper</a>.</p>
 
       <section>
         <h2 id="content">Content</h2>
@@ -36,10 +32,7 @@
 
       <section id="introduce">
         <h2>Introduce</h2>
-        <p>
-          <em>Checksum</em> is a batch script (so it can only used in Windows). It adds items to right-click menu to checksum
-          files of almost all types.
-        </p>
+        <p><em>Checksum</em> is a batch script (so it can only used in Windows). It adds items to right-click menu to checksum files of almost all types.</p>
       </section>
 
       <section id="how-it-works">
@@ -52,10 +45,7 @@
         <p style="font-style: italic">This script is safe and clean, but it's always a good habit to inspect every script before running it.</p>
         <p style="font-style: italic">If there is already 4.x version installed, please uninstall it with the 4.x installer before installing the 5.x version.</p>
         <ol>
-          <li>
-            <a href="https://github.com/lxvs/checksum/tags" target="_blank">Navigate to releases</a> and download one, or
-            <a href="https://github.com/lxvs/checksum/archive/refs/heads/main.zip">download latest dev version</a>
-          </li>
+          <li><a href="https://github.com/lxvs/checksum/tags" target="_blank">Navigate to releases</a> and download one, or <a href="https://github.com/lxvs/checksum/archive/refs/heads/main.zip">download latest dev version</a></li>
           <li>Unzip downloaded package and run <code>deploy.bat</code></li>
           <li>Select algorithms and options (see details below)</li>
         </ol>
@@ -130,22 +120,13 @@
           </tr>
         </table>
         <p>You can add the <em>ID</em> to select multiple algorithms/options (except <em>uninstall</em>)</p>
-        <p>
-          For example, <code>4+16+128</code> (or <code>148</code>) means to deploy <em>MD5</em>, <em>SHA256</em>, and put them in
-          a sub menu.
-        </p>
-        <p>
-          Peculiarly, a trailing <em>L</em> means <em>lowercase output only</em>, a trailing <em>Y</em> means to deploy
-          directly without confirmation. <em>Y</em> must be placed after <em>L</em> if both are present.
-        </p>
+        <p>For example, <code>4+16+128</code> (or <code>148</code>) means deploying <em>MD5</em>, <em>SHA256</em>, and put them in a sub menu.</p>
+        <p>Peculiarly, a trailing <em>L</em> means <em>lowercase output only</em>, a trailing <em>Y</em> means <em>deploying directly without confirmation</em>. <em>Y</em> must be placed after <em>L</em> if both are present.</p>
       </section>
 
       <section id="shortcut-keys">
         <h2>Shortcut Keys</h2>
-        <p>
-          If <em>cascaded context menu</em> is <em>not</em> enabled, it will create shortcut keys only for first algorithm (orderd
-          by <em>ID</em>) as follows.
-        </p>
+        <p>If <em>cascaded context menu</em> is <em>not</em> enabled, it will create shortcut keys only for first algorithm (orderd by <em>ID</em>) as follows.</p>
         <table>
           <tr>
             <th>Key</th>
@@ -168,16 +149,10 @@
             <td>Copy to clipboard and quit</td>
           </tr>
         </table>
-        <p>
-          If <em>cascaded context menu</em> is enabled, the submenu's shortcut key would be <em>Q</em>, and <em>1</em>, <em>2</em>,
-          <em>3</em>, ...,<em>9</em>, <em>0</em> will be assigned to items in order. Only first 10 items has shortcut keys.
-        </p>
+        <p>If <em>cascaded context menu</em> is enabled, the submenu's shortcut key would be <em>Q</em>; <em>1</em>, <em>2</em>, <em>3</em>, ...,<em>9</em>, <em>0</em> will be assigned to items in order. Only first 10 items have shortcut keys.</p>
       </section>
 
-      <address>
-        <a href="https://github.com/lxvs" target="_blank">GitHub</a>
-        | <a href="mailto:lxvs.net@gmail.com">Email me</a>
-      </address>
+      <address><a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:lxvs.net@gmail.com">Email me</a></address>
     </article>
   </body>
 </html>

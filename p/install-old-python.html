@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>How to Install an Old Version of Python on Debian or Ubuntu</title>
+    <title>How to Install an Old Version of Python in Debian or Ubuntu</title>
     <meta charset="utf-8"/>
-    <!-- <meta name="description" content=""> -->
+    <meta name="description" content="How to install an old version of Python in Debian or Ubuntu">
     <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -11,9 +11,7 @@
   <body>
     <article>
       <h1>How to Install an Old Version of Python on Debian or Ubuntu</h1>
-      <footer id="time">
-        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
-      </footer>
+      <footer id="time">Updated on <time datetime="2022-08-22">August 22, 2022</time>.</footer>
 
       <section>
         <h2 id="content">Content</h2>
@@ -28,8 +26,8 @@
       <section id="install-necessary-libs">
         <h2>Install Necessary Libs</h2>
         <p>Update your package manager and install required packages to build python.</p>
-        <pre><code>$ sudo apt-get update
-$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
+        <pre>$ <code>sudo apt-get update</code>
+$ <code>sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncurses5-dev libncursesw5-dev xz-utils tk-dev libgdbm-dev \
     libc6-dev</code></pre>
@@ -38,64 +36,44 @@ $ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
       <section id="download-python-source-tarball">
         <h2>Download Python Source Tarball</h2>
         <p>Say you want to install python 3.7.3, download the source tarball (note that the link is case sensitive).</p>
-        <pre><code>wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz</code></pre>
+        <pre>$ <code>wget https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz</code></pre>
         <p>Feel free to browse <a href="https://www.python.org/ftp/python/" target="_blank">https://www.python.org/ftp/python/</a> for other versions.</p>
       </section>
 
       <section id="build-and-install">
         <h2>Build and Install</h2>
         <p>After downloaded, unzip it and enter the source directory.</p>
-        <pre><code>$ tar -zx -f Python-3.7.3.tgz
-$ cd Python-3.7.3</code></pre>
+        <pre>$ <code>tar -zx -f Python-3.7.3.tgz</code>
+$ <code>cd Python-3.7.3</code></pre>
         <p>Then start building.</p>
-        <pre><code>$ ./configure
-$ make
-$ sudo make install</code></pre>
+        <pre>$ <code>./configure</code>
+$ <code>make</code>
+$ <code>sudo make install</code></pre>
       </section>
 
       <section id="remove-the-symbolic-link">
         <h2>Remove the Symbolic Link</h2>
-        <p>
-          Let's say you already have a python 3.9.2 coming with OS. Before you installed python 3.7.3,
-          <code>python3 --version</code> gives you <code>Python 3.9.2</code>, while after you installed 3.7.3 you will find
-          <code>python3</code> is referring to python 3.7.3 instead.
-        </p>
+        <p>Let's say you already have a python 3.9.2 coming with OS. Before you installed python 3.7.3, <code>python3 --version</code> gives you <em>Python 3.9.2</em>, while after you installed 3.7.3 you will find <em>python3</em> is referring to python 3.7.3 instead.</p>
         <p>Why is that?</p>
-        <p>
-          In most GNU/Linux systems, there are directory <code>/usr/bin</code> and <code>/usr/local/bin</code>, the former for
-          binaries supplied by OS or package manager, while the latter for binaries supplied by user. In most systems the latter
-          precedes the former in <code>$PATH</code>, which allows users to install alternate versions of binaries to override OS
-          provided ones.
-        </p>
-        <pre><code>$ ls -l /usr/bin/python*
-lrwxrwxrwx 1 root root       9 Apr  5  2021 /usr/bin/python3 -> python3.9
--rwxr-xr-x 1 root root 5479736 Mar  1  2021 /usr/bin/python3.9
+        <p>In most GNU/Linux systems, there are directory <em>/usr/bin</em> and <em>/usr/local/bin</em>, the former for binaries supplied by OS or package manager, the latter by user. In most systems the latter precedes the former in <em>PATH</em>, which allows users to install alternate versions of binaries to override OS provided ones.</p>
+        <pre>$ <code>ls -l /usr/bin/python*</code>
+<samp>lrwxrwxrwx 1 root root       9 Apr  5  2021 /usr/bin/python3 -&gt; python3.9
+-rwxr-xr-x 1 root root 5479736 Mar  1  2021 /usr/bin/python3.9<samp>
 
-$ ls -l /usr/local/bin/python*
-lrwxrwxrwx 1 root root        9 Jun  3 12:06 /usr/local/bin/python3 -> python3.7
--rwxr-xr-x 2 root root 15329120 Jun  3 12:06 /usr/local/bin/python3.7</code></pre>
-        <p>
-          Maybe there are some apps in your system relying on python 3.9.2 and you don't want to disrupt them, in which case, you
-          can remove the symbolic link in <code>/usr/local/bin</code>, which is created during installation. Note that you can
-          always explicitly specify which version you want to use by using <code>python3.7</code> or <code>python3.9</code> instead
-          of <code>python3</code>.
-        </p>
+$ <code>ls -l /usr/local/bin/python*</code>
+<samp>lrwxrwxrwx 1 root root        9 Jun  3 12:06 /usr/local/bin/python3 -&gt; python3.7
+-rwxr-xr-x 2 root root 15329120 Jun  3 12:06 /usr/local/bin/python3.7</samp></pre>
+        <p>Maybe there are some apps in your system relying on python 3.9.2 and you don't want to disrupt them, in which case, you can remove the symbolic link in <em>/usr/local/bin</em>, which is created during installation. Note that you can always explicitly specify which version you want to use by using <em>python3.7</em> or <em>python3.9</em> instead of <em>python3</em>.</p>
         <pre><code>$ sudo rm /usr/local/bin/python3</code></pre>
         <p>However, if you use command <code>python3</code> now, you will get an error:</p>
-        <pre><code>-bash: /usr/local/bin/python3: No such file or directory</code></pre>
-        <p>
-          That's because BASH doesn't realize the <code>python3</code> located in <code>/usr/local/bin</code> has been deleted.
-          You need to relogin or let BASH rescan the PATH.
-        </p>
-        <pre><code>$ source ~/.profile
-$ python3 --version
-Python 3.9.2</code></pre>
+        <pre><samp>-bash: /usr/local/bin/python3: No such file or directory</samp></pre>
+        <p>That's because BASH doesn't realize the <em>python3</em> located in <em>/usr/local/bin</em> has been deleted. You need to relogin BASH or let it rescan <em>PATH</em>.</p>
+        <pre>$ <code>source ~/.profile</code>
+$ <code>python3 --version</code>
+<samp>Python 3.9.2</samp></pre>
       </section>
 
-      <address>
-        <a href="https://github.com/lxvs" target="_blank">GitHub</a>
-        | <a href="mailto:lxvs.net@gmail.com">Email me</a>
-      </address>
+      <address><a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:lxvs.net@gmail.com">Email me</a></address>
     </article>
   </body>
 </html>

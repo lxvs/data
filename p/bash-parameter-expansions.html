@@ -11,9 +11,7 @@
   <body>
     <article>
       <h1>BASH Parameter Expansions</h1>
-      <footer id="time">
-        Updated on <time datetime="2022-08-19">August 19, 2022</time>.
-      </footer>
+      <footer id="time">Updated on <time datetime="2022-08-22">August 22, 2022</time>.</footer>
 
       <section>
         <h2 id="content">Content</h2>
@@ -88,71 +86,49 @@
       <section id="substring">
         <h2>Substring</h2>
         <h3><code>${parameter#pattern}</code></h3>
-        <p>
-          Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the beginning deleted.
-        </p>
+        <p>Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the beginning deleted.</p>
         <h3><code>${parameter##pattern}</code></h3>
-        <p>
-          Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the beginning deleted.
-        </p>
+        <p>Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the beginning deleted.</p>
         <h3><code>${parameter%pattern}</code></h3>
-        <p>
-          Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the end deleted.
-        </p>
+        <p>Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the end deleted.</p>
         <h3><code>${parameter%%pattern}</code></h3>
-        <p>
-          Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the end deleted.
-        </p>
+        <p>Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the end deleted.</p>
       </section>
 
       <section id="reference-to-variables">
         <h2>Reference to Variables</h2>
         <h3><code>${!word}</code></h3>
-        <p>
-          Expand to variable <code>${$word}</code> if it's defined, error otherwise. Note that <em>word</em> is non-recursive;
-          references like <code>${!operation_${codename}}</code> will fail.
-        </p>
+        <p>Expand to variable <code>${$word}</code> if it's defined, error otherwise. Note that <em>word</em> is non-recursive; references like <code>${!operation_${codename}}</code> will fail.</p>
         <p>Example:</p>
-        <pre><code>$ vairable=value
+        <pre>$ <code>vairable=value</code>
+$ <code>word=variable</code>
+$ <code>echo $word</code>
+<samp>variable</samp>
 
-$ word=variable
+$ <code>echo $vairable</code>
+<samp>value</samp>
 
-$ echo $word
-variable
+$ <code>echo ${!word}</code>
+<samp>value<samp>
 
-$ echo $vairable
-value
+$ <code>codename=blueline</code>
+$ <code>operation_blueline=success!</code>
+$ <code>echo $operation_blueline</code>
+<samp>success!</samp>
 
-$ echo ${!word}
-value
-
-$ codename=blueline
-
-$ operation_blueline=success!
-
-$ echo $operation_blueline
-success!
-
-$ echo ${!operation_$codename}
-bash: ${!operation_$codename}: bad substitution</code></pre>
+$ <code>echo ${!operation_$codename}</code>
+<samp>bash: ${!operation_$codename}: bad substitution</samp></pre>
       </section>
 
       <section id="references">
         <h2>References</h2>
-        <p>
-          <a href="http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html" target="_blank">
-            Shell Parameter Expansion (Bash Reference Manual)
-          </a><br>
-          <a href="https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_06_02">
-            Parameter Expansion - Shell Command Language
-          </a><br>
-        </p>
+        <ul>
+          <li><a href="http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html" target="_blank">Shell Parameter Expansion (Bash Reference Manual)</a></li>
+          <li><a href="https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html#tag_02_06_02">Parameter Expansion - Shell Command Language</a></li>
+        </ul>
       </section>
 
-      <address>
-        <a href="https://github.com/lxvs" target="_blank">GitHub</a>
-        | <a href="mailto:lxvs.net@gmail.com">Email me</a>
-      </address>
+      <address><a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:lxvs.net@gmail.com">Email me</a></address>
     </article>
   </body>
 </html>
