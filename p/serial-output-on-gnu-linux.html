@@ -1,46 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enable Serial/SOL Output in GNU/Linux Systems</title>
+    <title>Redirecting</title>
     <meta charset="utf-8"/>
-    <meta name="description" content="A simple tutorial on how to enable serial/SOL output in GNU/Linux systems.">
-    <link rel="stylesheet" href="/styles/bare.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0; URL=serial-output-in-gnu-linux">
   </head>
-
   <body>
-    <article>
-      <h1>Enable Serial/SOL Output on GNU/Linux Systems</h1>
-      <footer id="time">Updated on <time datetime="2022-08-22">August 22, 2022</time>.</footer>
-
-      <section>
-        <h2 id="content">Content</h2>
-        <ul>
-          <li><a href="#temporarily">Temporarily</a></li>
-          <li><a href="#permanently">Permanently</a></li>
-        </ul>
-      </section>
-
-      <section id="temporarily">
-        <h2>Temporarily</h2>
-        <p>When system boot to grub menu, press <kbd>e</kbd> to edit boot options, in the line starting with<code>linux ($root)/vmlinuz-</code>, append <code>console=ttyS0,115200n8 console=tty0</code> to the end. Then press <kbd>Ctrl</kbd> + <kbd>x</kbd> to continue to boot.</p>
-      </section>
-
-      <section id="permanently">
-        <h2>Permanently</h2>
-        <p>Below steps were tested in <em>RHEL 8.2</em> and <em>9.0</em>.</p>
-        <ol>
-        <li>Enter directory <em>/etc/default</em> and make a backup of file <em>grub</em>.<pre>$ <code>cd /etc/default</code>
-$ <code>sudo cp grub grub.bak</code></pre></li>
-        <li>Edit file <em>/etc/default/grub</em>, in line starting with <code>GRUB_CMDLINE_LINUX=</code>, append <code>console=ttyS0,115200n8 console=tty0</code> within the quotation marks.</li>
-        <li>Execute below commands:<pre>$ <code>sudo grub2-editenv - unset kernelopts</code>
-$ <code>sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre></li>
-
-        <h2>If Something Is Wrong...</h2>
-        <p>In case that something was did mistakenly in above procedure and the system cannot boot, you can try to boot into single user mode and restore the file <em>grub</em> from <em>grub.bak</em> created in first step, and then redo step 3.</p>
-      </section>
-
-      <address><a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:lxvs.net@gmail.com">Email me</a></address>
-    </article>
+    <p style="text-align: center; font-size: large; font-family: sans-serif;">Redirecting to <a href="serial-output-in-gnu-linux">serial-output-in-gnu-linux</a>...</p>
   </body>
 </html>
