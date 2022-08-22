@@ -9,8 +9,9 @@ html {
 
 pre {
     line-height: 150%;
-    width: 98%;
-    margin: auto;
+    margin-left: 1em;
+    margin-right: 1em;
+    overflow-x: auto;
 }
 
 section {
@@ -23,7 +24,8 @@ h1, h2, h3 {
 }
 
 table {
-    width: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 th, td {
