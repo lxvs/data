@@ -36,8 +36,7 @@ $ <code>sudo cp grub grub.bak</code></pre></li>
           <li>Execute below commands:<pre>$ <code>sudo grub2-editenv - unset kernelopts</code>
 $ <code>sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre></li>
         </ol>
-
-        <h2>If Something Is Wrong...</h2>
+        <h3>If Something Is Wrong...</h3>
         <p>In case that something was did mistakenly in above procedure and the system cannot boot, you can try to boot into single user mode and restore the file <em>grub</em> from <em>grub.bak</em> created in first step, and then redo step 3.</p>
       </section>
 
