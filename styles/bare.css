@@ -7,6 +7,12 @@ html {
     margin-bottom: 1em;
 }
 
+p.subtitle {
+    font-size: large;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
 pre {
     line-height: 150%;
     margin-left: 1em;
