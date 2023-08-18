@@ -11,7 +11,7 @@
   <body>
     <article>
       <h1>CloudConf</h1>
-      <footer class="time">Updated on <time datetime="2022-08-22">August 22, 2022</time>.</footer>
+      <footer class="time">Updated on <time datetime="2023-08-19">August 19, 2023</time>.</footer>
       <footer class="ghlink">
         <a href="https://github.com/lxvs/cloudconf" target="_blank">View on GitHub</a>
         | <a href="https://github.com/lxvs/cloudconf/tags" target="_blank">View releases</a>
@@ -24,88 +24,160 @@
         <ul class="toc">
           <li><a href="#introduce">Introduce</a></li>
           <li><a href="#usage">Usage</a></li>
+          <ul>
+            <li><a href="#download">Download latest code</a></li>
+            <li><a href="#configure">Configure deployment parameters</a></li>
+            <ul>
+              <li><a href="#vim">Vim</a></li>
+              <li><a href="#rime">Rime</a></li>
+              <li><a href="#everything">Everything</a></li>
+              <li><a href="#sumatrapdf">SumatraPDF</a></li>
+            </ul>
+          </ul>
         </ul>
       </section>
 
       <section id="introduce">
         <h2>Introduce</h2>
-        <p><em>CloudConf</em> is a set of batch scripts to sync your configurations via your cloud storage services (Dropbox, Onedrive, etc.).</p>
-        <p>It creates symbolic links, or copies configurations, to your PCs from your cloud storage.</p>
-        <p>Currently it can only be used in Windows, and supports configurations or these tools:</p>
-        <ul>
-          <li>Vim</li>
-          <li>Rime</li>
-          <li>Everything</li>
-          <li>SumatraPDF</li>
-        </ul>
+        <p>
+          <em>CloudConf</em> is a set of batch scripts to sync your configurations via your cloud storage services
+          (Dropbox, OneDrive, etc.).
+        </p>
+        <p>
+          It creates symbolic links, or copies configurations, to your PCs from your cloud storage.  Currently it can
+          only be used in Windows, and supports configurations for Vim, Rime, Everything, and SumatraPDF.
+        </p>
       </section>
 
       <section id="usage">
         <h2>Usage</h2>
-        <h3>Download latest code</h3>
-        <p><a href="https://github.com/lxvs/cloudconf/archive/refs/heads/main.zip">Download latest code</a>, and extract the subfolders you need to your cloud storage.</p>
-        <h3>Configure deployment parameters</h3>
-        <ul>
-          <li><a href="#usage-vim">Vim</a></li>
-          <li><a href="#usage-rime">Rime</a></li>
-          <li><a href="#usage-everything">Everything</a></li>
-          <li><a href="#usage-sumatrapdf">SumatraPDF</a></li>
-        </ul>
+        <section id="download">
+          <h3>Download latest code</h3>
+          <p>
+            <a href="https://github.com/lxvs/cloudconf/archive/refs/heads/main.zip">Download latest code</a>, and
+            extract the subdirectories you need to your cloud storage.
+          </p>
+        </section>
 
-        <h4 id="usage-vim">Vim</h4>
-        <p>The deployment of <em>Vim</em> can be configured via following 2 files:</p>
-        <ul>
-          <li><a href="#cloudconf-vim-dir">cloudconf-vim-dir.txt</a></li>
-          <li><a href="#cloudconf-vim-ver">cloudconf-vim-ver.txt</a></li>
-        </ul>
-        <h5 id="cloudconf-vim-dir">cloudconf-vim-dir</h5>
-        <p><em>cloudconf-vim-dir.txt</em> should contain the absolute path to the <em>Vim</em> installation directory. Environment variables are acceptable. Normally it should be <em>%ProgramFiles%\Vim</em>, which is the default value when this file is absent. Before reading this file, the deployment script will check if environment variable <em>vimDir</em> is defined. If so, the script will take it and ignore this file. Otherwise, the script reads and set variable <em>vimDir</em> to the content of this file.</p>
-        <p>Example content:</p>
-        <pre><code>%ProgramFiles%\Vim</code></pre>
-        <h5 id="cloudconf-vim-ver">cloudconf-vim-ver</h5>
-        <p><em>cloudconf-vim-ver.txt</em> should contain the version of <em>Vim</em> you are using, i.e. the directory name inside directory <em>vimDir</em>.</p>
-        <p>Example content:</p>
-        <pre><code>vim82</code></pre>
+        <section id="configure">
+          <h3>Configure deployment parameters</h3>
+          <section id="vim">
+            <h4>Vim</h4>
+            <p>The deployment of <em>Vim</em> can be configured via following 2 files:</p>
+            <ul>
+              <li><a href="#cloudconf-vim-dir">cloudconf-vim-dir.txt</a></li>
+              <li><a href="#cloudconf-vim-ver">cloudconf-vim-ver.txt</a></li>
+            </ul>
+            <h5 id="cloudconf-vim-dir">cloudconf-vim-dir</h5>
+            <p>
+              <em>cloudconf-vim-dir.txt</em> should contain the absolute path to the <em>Vim</em> installation
+              directory.  Environment variables are acceptable.  Normally it should be <em>%ProgramFiles%\Vim</em>,
+              which is the default value when this file is absent.  Before reading this file, the deployment script will
+              check if environment variable <em>vimDir</em> is defined.  If so, the script will take it and ignore this
+              file.  Otherwise, the script reads and set variable <em>vimDir</em> to the content of this file.
+            </p>
+            <p>Example content:</p>
+            <pre><code>%ProgramFiles%\Vim</code></pre>
+            <h5 id="cloudconf-vim-ver">cloudconf-vim-ver</h5>
+            <p>
+              <em>cloudconf-vim-ver.txt</em> should contain the version of <em>Vim</em> you are using, i.e., the
+              directory name inside directory <em>vimDir</em>.
+            </p>
+            <p>Example content:</p>
+            <pre><code>vim82</code></pre>
+          </section>
 
-        <h4 id="usage-rime">Rime</h4>
-        <p>The deployment of <em>Rime</em> can be configured via following 4 files:</p>
-        <ul>
-          <li><a href="#cloudconf-rime-dir">cloudconf-rime-dir.txt</a></li>
-          <li><a href="#cloudconf-rime-list-copy">cloudconf-rime-list-copy.txt</a></li>
-          <li><a href="#cloudconf-rime-list-mklink">cloudconf-rime-list-mklink.txt</a></li>
-          <li><a href="#cloudconf-rime-list-userdb">cloudconf-rime-list-userdb.txt</a></li>
-        </ul>
-        <h5 id="cloudconf-rime-dir">cloudconf-rime-dir</h5>
-        <p><em>cloudconf-rime-dir.txt</em> should contain the absolute path to the <em>Rime</em> personal directory. Environment variables are acceptable. Normally it should be <em>%APPDATA%\Rime</em>, which is the default value when this file is absent. Before reading this file, the deployment script will check if environment variable <em>rimeDir</em> is defined. If so, the script will take it and ignore this file. Otherwise, the script reads and set variable <em>rimeDir</em> to the content of this file.</p>
-        <p>Example content:</p>
-        <pre><code>%APPDATA%\Rime</code></pre>
-        <h5 id="cloudconf-rime-list-copy">cloudconf-rime-list-copy</h5>
-        <p><em>cloudconf-rime-list-copy.txt</em> should contain a list of files that you intend to <em>copy</em> from the script directory to <em>rimeDir</em>.</p>
-        <p>Example content:</p>
-        <pre><code>default.custom.yaml
+          <section id="rime">
+            <h4>Rime</h4>
+            <p>The deployment of <em>Rime</em> can be configured via following 4 files:</p>
+            <ul>
+              <li><a href="#cloudconf-rime-dir">cloudconf-rime-dir.txt</a></li>
+              <li><a href="#cloudconf-rime-list-copy">cloudconf-rime-list-copy.txt</a></li>
+              <li><a href="#cloudconf-rime-list-mklink">cloudconf-rime-list-mklink.txt</a></li>
+              <li><a href="#cloudconf-rime-list-userdb">cloudconf-rime-list-userdb.txt</a></li>
+            </ul>
+            <h5 id="cloudconf-rime-dir">cloudconf-rime-dir</h5>
+            <p>
+              <em>cloudconf-rime-dir.txt</em> should contain the absolute path to the <em>Rime</em> personal directory.
+              Environment variables are acceptable.  Normally it should be <em>%APPDATA%\Rime</em>, which is the default
+              value when this file is absent.  Before reading this file, the deployment script will check if environment
+              variable <em>rimeDir</em> is defined.  If so, the script will take it and ignore this file.  Otherwise,
+              the script reads and set variable <em>rimeDir</em> to the content of this file.
+            </p>
+            <p>Example content:</p>
+            <pre><code>%APPDATA%\Rime</code></pre>
+            <h5 id="cloudconf-rime-list-copy">cloudconf-rime-list-copy</h5>
+            <p>
+              <em>cloudconf-rime-list-copy.txt</em> should contain a list of files that you intend to <em>copy</em> from
+              the script directory to <em>rimeDir</em>.
+            </p>
+            <p>Example content:</p>
+            <pre><code>default.custom.yaml
 wubi86.custom.yaml</code></pre>
-        <p>If the script is in folder <em>C:\Users\Bob\cloudconf\rime\__rime_deploy.bat</em>, following this configuration, the script will copy <em>C:\Users\Bob\cloudconf\rime\wubi86.custom.yaml</em> and <em>c:\Users\Bob\cloudconf\rime\custom_phrase.txt</em> to directory <em>%APPDATA%\Rime\</em>. That also means you should put your own <em>wubi86.custom.yaml</em> and <em>custom_phrase.txt</em> in the directory <em>c:\Users\Bob\cloudconf\rime\</em>.</p>
-        <h5 id="cloudconf-rime-list-mklink">cloudconf-rime-list-mklink</h5>
-        <p><em>cloudconf-rime-list-mklink.txt</em> should contain a list of files that you intend to <em>make symbolic links</em> from the script directory to <em>rimeDir</em>.</p>
-        <p>Example content:</p>
-        <pre><code>custom_phrase.txt</code></pre>
-        <p>What this differs from <em>copy</em> is that when you modify file <em>C:\Users\Bob\cloudconf\rime\custom_phrase.txt</em>, file <em>%APPDATA%\rime\custom_phrase.txt</em> will also be modified, acting as the latter is a shortcut of the former.</p>
-        <h5 id="cloudconf-rime-list-userdb">cloudconf-rime-list-userdb</h5>
-        <p><em>cloudconf-rime-list-userdb.txt</em> should contain a list of <em>.userdb.txt</em> files that you intend to merge to your local <em>userdb</em>s. They can be found at <em>%APPDATA%\Rime\sync\&lt;user-id&gt;\&lt;schema&gt;.userdb.txt</em>. You need to sync your Rime to generate the latest one.</p>
-        <p>Example content:</p>
-        <pre><code>wubi86.userdb.txt</code></pre>
+            <p>
+              If the script is in folder <em>C:\Users\Bob\cloudconf\rime\__rime_deploy.bat</em>, following this
+              configuration, the script will copy <em>C:\Users\Bob\cloudconf\rime\wubi86.custom.yaml</em> and
+              <em>c:\Users\Bob\cloudconf\rime\custom_phrase.txt</em> to directory <em>%APPDATA%\Rime\</em>.  That also
+              means you should put your own <em>wubi86.custom.yaml</em> and <em>custom_phrase.txt</em> in the directory
+              <em>c:\Users\Bob\cloudconf\rime\</em>.
+            </p>
+            <h5 id="cloudconf-rime-list-mklink">cloudconf-rime-list-mklink</h5>
+            <p>
+              <em>cloudconf-rime-list-mklink.txt</em> should contain a list of files that you intend to <em>make
+              symbolic links</em> from the script directory to <em>rimeDir</em>.
+            </p>
+            <p>Example content:</p>
+            <pre><code>custom_phrase.txt</code></pre>
+            <p>
+              What this differs from <em>copy</em> is that when you modify file
+              <em>C:\Users\Bob\cloudconf\rime\custom_phrase.txt</em>, file <em>%APPDATA%\rime\custom_phrase.txt</em>
+              will also be modified, acting as the latter is a shortcut of the former.
+            </p>
+            <h5 id="cloudconf-rime-list-userdb">cloudconf-rime-list-userdb</h5>
+            <p>
+              <em>cloudconf-rime-list-userdb.txt</em> should contain a list of <em>.userdb.txt</em> files that you
+              intend to merge to your local <em>userdb</em>s.  They can be found at
+              <em>%APPDATA%\Rime\sync\&lt;user-id&gt;\&lt;schema&gt;.userdb.txt</em>.  You need to sync your Rime to
+              generate the latest one.
+            </p>
+            <p>Example content:</p>
+            <pre><code>wubi86.userdb.txt</code></pre>
+          </section>
 
-        <h4 id="usage-everything">Everything</h4>
-        <p>The deployment of <em>Everything</em> can be configured via file <em>cloudconf-everything-dir.txt</em>.</p>
-        <p><em>cloudconf-everything-dir.txt</em> should contain the absolute path to the <em>Everything</em> configuration directory. Environment variables are acceptable. Normally it should be <em>%APPDATA%\Everything</em>, which is the default value when this file is absent. Before reading this file, the deployment script will check if environment variable <em>everythingDir</em> is defined. If so, the script will take it and ignore this file. Otherwise, the script reads and set variable <em>everythingDir</em> to the content of this file.</p>
-        <p>Example content:</p>
-        <pre><code>%APPDATA%\Everything</code></pre>
+          <section id="everything">
+            <h4>Everything</h4>
+            <p>
+              The deployment of <em>Everything</em> can be configured via file <em>cloudconf-everything-dir.txt</em>.
+            </p>
+            <p>
+              <em>cloudconf-everything-dir.txt</em> should contain the absolute path to the <em>Everything</em>
+              configuration directory.  Environment variables are acceptable.  Normally it should be
+              <em>%APPDATA%\Everything</em>, which is the default value when this file is absent.  Before reading this
+              file, the deployment script will check if environment variable <em>everythingDir</em> is defined.  If so,
+              the script will take it and ignore this file.  Otherwise, the script reads and set variable
+              <em>everythingDir</em> to the content of this file.
+            </p>
+            <p>Example content:</p>
+            <pre><code>%APPDATA%\Everything</code></pre>
+          </section>
 
-        <h4 id="usage-sumatrapdf">SumatraPDF</h4>
-        <p>The deployment of <em>SumatraPDF</em> can be configured via file <em>cloudconf-sumatrapdf-dir.txt</em>.</p>
-        <p><em>cloudconf-sumatrapdf-dir.txt</em> should contain the absolute path to the <em>SumatraPDF</em> configuration directory. Environment variables are acceptable. Normally it should be <em>%LOCALAPPDATA%\SumatraPDF</em>, which is the default value when this file is absent. Before reading this file, the deployment script will check if environment variable <em>sumatrapdfDir</em> is defined. If so, the script will take it and ignore this file. Otherwise, the script reads and set variable <em>sumatrapdfDir</em> to the content of this file.</p>
-        <p>Example content:</p>
-        <pre><code>%LOCALAPPDATA%\SumatraPDF</code></pre>
+          <section id="sumatrapdf">
+            <h4 id="sumatrapdf">SumatraPDF</h4>
+            <p>
+              The deployment of <em>SumatraPDF</em> can be configured via file <em>cloudconf-sumatrapdf-dir.txt</em>.
+            </p>
+            <p>
+              <em>cloudconf-sumatrapdf-dir.txt</em> should contain the absolute path to the <em>SumatraPDF</em>
+              configuration directory.  Environment variables are acceptable.  Normally it should be
+              <em>%LOCALAPPDATA%\SumatraPDF</em>, which is the default value when this file is absent.  Before reading
+              this file, the deployment script will check if environment variable <em>sumatrapdfDir</em> is defined.  If
+              so, the script will take it and ignore this file.  Otherwise, the script reads and set variable
+              <em>sumatrapdfDir</em> to the content of this file.
+            </p>
+            <p>Example content:</p>
+            <pre><code>%LOCALAPPDATA%\SumatraPDF</code></pre>
+            </section>
+        </section>
       </section>
 
     </article>
