@@ -30,11 +30,11 @@
       <h2>Permanently</h2>
       <p>Below steps were tested in <em>RHEL 8.2</em> and <em>9.0</em>.</p>
       <ol>
-        <li>Enter directory <em>/etc/default</em> and make a backup of file <em>grub</em>.<pre>$ <code>cd /etc/default</code>
-$ <code>sudo cp grub grub.bak</code></pre></li>
+        <li>Enter directory <em>/etc/default</em> and make a backup of file <em>grub</em>.<pre><code>$ cd /etc/default</code>
+<code>$ sudo cp grub grub.bak</code></pre></li>
         <li>Edit file <em>/etc/default/grub</em>, in line starting with <code>GRUB_CMDLINE_LINUX=</code>, append <code>console=ttyS0,115200n8 console=tty0</code> within the quotation marks.</li>
-        <li>Execute below commands:<pre>$ <code>sudo grub2-editenv - unset kernelopts</code>
-$ <code>sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre></li>
+        <li>Execute below commands:<pre><code>$ sudo grub2-editenv - unset kernelopts</code>
+<code>$ sudo grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg</code></pre></li>
       </ol>
       <h3>If Something Is Wrong...</h3>
       <p>In case that something was did mistakenly in above procedure and the system cannot boot, you can try to boot into single user mode and restore the file <em>grub</em> from <em>grub.bak</em> created in first step, and then redo step 3.</p>

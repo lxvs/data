@@ -100,23 +100,23 @@
       <h3><code>${!word}</code></h3>
       <p>Expand to variable <code>${$word}</code> if it's defined, error otherwise. Note that <em>word</em> is non-recursive; references like <code>${!operation_${codename}}</code> will fail.</p>
       <p>Example:</p>
-      <pre>$ <code>vairable=value</code>
-$ <code>word=variable</code>
-$ <code>echo $word</code>
+      <pre><code>$ variable=value</code>
+<code>$ word=variable</code>
+<code>$ echo $word</code>
 <samp>variable</samp>
 
-$ <code>echo $vairable</code>
+<code>$ echo $vairable</code>
 <samp>value</samp>
 
-$ <code>echo ${!word}</code>
+<code>$ echo ${!word}</code>
 <samp>value</samp>
 
-$ <code>codename=blueline</code>
-$ <code>operation_blueline=success!</code>
-$ <code>echo $operation_blueline</code>
+<code>$ codename=blueline</code>
+<code>$ operation_blueline=success!</code>
+<code>$ echo $operation_blueline</code>
 <samp>success!</samp>
 
-$ <code>echo ${!operation_$codename}</code>
+<code>$ echo ${!operation_$codename}</code>
 <samp>bash: ${!operation_$codename}: bad substitution</samp></pre>
     </section>
 
