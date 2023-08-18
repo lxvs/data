@@ -19,7 +19,7 @@
         <li><a href="#install-necessary-libs">Install Necessary Libs</a></li>
         <li><a href="#download-python-source-tarball">Download Python Source Tarball</a></li>
         <li><a href="#build-and-install">Build and Install</a></li>
-        <li><a href="#remove-the-symbolic-link">Remove the Symbolic Link</a></li>
+        <li><a href="#symlink">Replace the Symbolic Link</a></li>
       </ul>
     </section>
 
@@ -51,8 +51,8 @@
 <code class="dollar">sudo make install</code></pre>
     </section>
 
-    <section id="remove-the-symbolic-link">
-      <h2>Remove the Symbolic Link</h2>
+    <section id="symlink">
+      <h2>Replace the Symbolic Link</h2>
       <p>Let's say you already have a python 3.9.2 coming with OS. Before you installed python 3.7.3, <code>python3 --version</code> gives you <em>Python 3.9.2</em>, while after you installed 3.7.3 you will find <em>python3</em> is referring to python 3.7.3 instead.</p>
       <p>Why is that?</p>
       <p>In most GNU/Linux systems, there are directory <em>/usr/bin</em> and <em>/usr/local/bin</em>, the former for binaries supplied by OS or package manager, the latter by user. In most systems the latter precedes the former in <em>PATH</em>, which allows users to install alternate versions of binaries to override OS provided ones.</p>
