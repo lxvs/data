@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/styles/bare.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is ASCIIZ</title>
+  <meta name="description" content="TL;DR: ASCIIZ is an alternative name for `null-terminated string', or `C String'.">
+</head>
+<body>
+  <article>
+    <h1>What is ASCIIZ</h1>
+    <footer class="time">Updated on <time datetime="2023-10-23">October 23, 2023</time>.</footer>
+
+    <p>
+      ASCIIZ is an alternative name for `null-terminated string', or `C String', which is a string stored with an
+      terminating `<code>NULL</code>', or `<code>\0</code>'.  The name derives from MIPS Assembly Language.
+    </p>
+    <blockquote>
+      <strong>15–8</strong> The SPIM provides two directives to allocate storage for strings: .ASCII and .ASCIIZ. The
+      .ASCII directive can be used to allocate space for a string that is not terminated by the NULL character. The
+      statement
+      <pre><code>.ASCII string</code></pre>
+      allocates a number of bytes equal to the number of characters in string. For example,
+      <pre><code>.ASCII "Toy Story"</code></pre>
+      allocates nine bytes of contiguous storage and initializes it to “Toy Story”.  Strings are normally
+      NULL-terminated as in C. For example, to display a string using print string service, the string must be
+      NULL-terminated. Using .ASCIIZ instead of ASCII stores the specified string in the NULL-terminated format. The
+      .ASCII directive is useful for breaking a long string into multiple string statements as shown in the following
+      example:
+      <pre><code>.ASCII    "Toy Story is a good computer-animated movie. \n"
+.ASCII    "This reviewer recommends it to all kids \n"
+.ASCIIZ   "and their parents."</code></pre>
+    </blockquote>
+    <p>
+      There is also a word `UnicodeZ'.  Similarly, it means a unicode string with an terminating `<code>NULL</code>',
+      but it's rarely used.
+    </p>
+
+  </article>
+  <address class="bottom">
+    <a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:hi@lxvs.net">Email me</a>
+  </address>
+</body>
+</html>
