@@ -39,22 +39,22 @@
       <section id="script-file">
         <h3>Script File</h3>
         <p>
-          UEFI Shell script files have `.nsh' extension name, and can be encoded in ASCII or UCS-2.
+          UEFI Shell script files have `<code>.nsh</code>' extension name, and can be encoded in ASCII or UCS-2.
         </p>
       </section>
       <section id="invocation">
         <h3>Invocation</h3>
         <p>
-          A UEFI script can be invoked in a UEFI Shell (except a level 0, or minimal, shell), or within another UEFI
-          Shell script, by its filename, with or without extension.
+          A UEFI shell script can be invoked in a UEFI Shell (except a level 0 shell, i.e. a minimal shell), or within
+          another script, by its filename, with or without extension.
         </p>
       </section>
       <section id="startup">
         <h3>Startup Script</h3>
         <p>
-          By default, UEFI Shell will automatically executing script on launching after a delay (5 seconds by default).
-          This delay can be skipped by pressing any key except <kbd>Esc</kbd>.  If <kbd>Esc</kbd> is pressed within the
-          delay, the startup script won't be executed.
+          By default, UEFI Shell will automatically execute the startup script on launching, after a delay (5 seconds by
+          default).  This delay can be skipped by pressing any key (except <kbd>Esc</kbd>).  If <kbd>Esc</kbd> is
+          pressed during the delay, the startup script won't be executed.
         </p>
         <p>
           The startup script must be named `<code>startup.nsh</code>'.  Shell will search for startup script in this
@@ -65,7 +65,7 @@
           <li>paths defined in environment variable `<code>path</code>'</li>
         </ol>
         <p>
-          and execute the script it first find.  The minimum default `<code>path</code>' must contain
+          and execute the script it first found.  The minimum default `<code>path</code>' must contain
           `<code>\efi\tools</code>', `<code>\efi\boot</code>', and `<code>\</code>' for each mapped file system.
         </p>
       </section>
@@ -78,17 +78,17 @@
         <section id="echo-off">
           <h4>Echo Off</h4>
           <p>
-            Like batch file, shell echoing is enabled by default.  To stop shell echoing during script executing, add
-            `<code>@echo -off</code>' in the beginning of the script.  Prepending `<code>@</code>' to a line can suppress
-            the echoing of that line.  To turn echoing back on, use `<code>echo -on</code>'.
+            Like batch files, shell echoing is enabled by default.  To stop shell echoing during script executing, add
+            `<code>@echo -off</code>' at the beginning of the script.  Prepending `<code>@</code>' to a line suppresses
+            the echoing of that line only.  To turn echoing back on, use `<code>echo -on</code>'.
           </p>
         </section>
         <section id="quoting">
           <h4>Quoting</h4>
           <p>
             The message to be echoed can either be quoted with double quotation marks (<code>"</code>), or be not
-            quoted.  However, if there is switch-like words, such as `<code>-i</code>', in the message, the message must
-            be quoted, or the echo will error with `<samp>echo: Unknown flag - '-i'</samp>'.
+            quoted.  However, if there is any switch-like argument, such as `<code>-i</code>', in the message, the
+            message must be quoted, or the echo will error with `<samp>echo: Unknown flag - '-i'</samp>'.
           </p>
         </section>
         <section id="empty-line-issue">
@@ -99,9 +99,9 @@
           <pre><code>Shell> mode 80 25
 Shell> echo 0123456789
 0123456789
-Shell> echo 01234567891123456789212345678931234567894123456789512345678961234567
-897123456789
-01234567891123456789212345678931234567894123456789512345678961234567897123456789
+Shell> echo 11111111112222222222333333333344444444445555555555666666666677777777
+778888888888
+11111111112222222222333333333344444444445555555555666666666677777777778888888888
 
 Shell> </code></pre>
         </section>
