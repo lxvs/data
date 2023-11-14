@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="/styles/bare.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes on UEFI Shell Scripting</title>
+  <meta name="description" content="Notes on some commands and scripting for UEFI Shell.">
+</head>
+<body>
+  <article>
+    <h1>Notes on UEFI Shell Scripting</h1>
+    <footer class="time">Updated on <time datetime="2023-11-15">November 15, 2023</time>.</footer>
+
+    <nav class="toc" id="content">
+      <h2>Content</h2>
+      <ul>
+        <li><a href="#script">Notes on UEFI Shell Script</a></li>
+        <ul>
+          <li><a href="#script-file">Script File</a></li>
+          <li><a href="#invocation">Invocation</a></li>
+          <li><a href="#startup">Startup Script</a></li>
+        </ul>
+        <li><a href="#commands">Commands</a></li>
+        <ul>
+          <li><a href="#echo">echo</a></li>
+          <ul>
+            <li><a href="#echo-off">Echo Off</a></li>
+            <li><a href="#quoting">Quoting</a></li>
+            <li><a href="#empty-line-issue">Empty Line Issue</a></li>
+          </ul>
+          <li><a href="#set">set</a></li>
+        </ul>
+      </ul>
+    </nav>
+
+    <section id="script">
+      <h2>Notes on UEFI Shell Script</h2>
+      <section id="script-file">
+        <h3>Script File</h3>
+        <p>
+          UEFI Shell script files have `.nsh' extension name, and can be encoded in ASCII or UCS-2.
+        </p>
+      </section>
+      <section id="invocation">
+        <h3>Invocation</h3>
+        <p>
+          A UEFI script can be invoked in a UEFI Shell (except a level 0, or minimal, shell), or within another UEFI
+          Shell script, by its filename, with or without extension.
+        </p>
+      </section>
+      <section id="startup">
+        <h3>Startup Script</h3>
+        <p>
+          By default, UEFI Shell will automatically executing script on launching after a delay (5 seconds by default).
+          This delay can be skipped by pressing any key except <kbd>Esc</kbd>.  If <kbd>Esc</kbd> is pressed within the
+          delay, the startup script won't be executed.
+        </p>
+        <p>
+          The startup script must be named `<code>startup.nsh</code>'.  Shell will search for startup script in this
+          order:
+        </p>
+        <ol>
+          <li>the same directory that the Shell is launched</li>
+          <li>paths defined in environment variable `<code>path</code>'</li>
+        </ol>
+        <p>
+          and execute the script it first find.  The minimum default `<code>path</code>' must contain
+          `<code>\efi\tools</code>', `<code>\efi\boot</code>', and `<code>\</code>' for each mapped file system.
+        </p>
+      </section>
+    </section>
+
+    <section id="commands">
+      <h2>Commands</h2>
+      <section id="echo">
+        <h3>echo</h3>
+        <section id="echo-off">
+          <h4>Echo Off</h4>
+          <p>
+            Like batch file, shell echoing is enabled by default.  To stop shell echoing during script executing, add
+            `<code>@echo -off</code>' in the beginning of the script.  Prepending `<code>@</code>' to a line can suppress
+            the echoing of that line.  To turn echoing back on, use `<code>echo -on</code>'.
+          </p>
+        </section>
+        <section id="quoting">
+          <h4>Quoting</h4>
+          <p>
+            The message to be echoed can either be quoted with double quotation marks (<code>"</code>), or be not
+            quoted.  However, if there is switch-like words, such as `<code>-i</code>', in the message, the message must
+            be quoted, or the echo will error with `<samp>echo: Unknown flag - '-i'</samp>'.
+          </p>
+        </section>
+        <section id="empty-line-issue">
+          <h4>Empty Line Issue</h4>
+          <p>
+            Normally, `echo' will end output with a newline, but if the last line takes up all of the console column (e.g., echoing exact 80 characters in a 80x25 mode shell), `echo' with ends output with an empty line.
+          </p>
+          <pre><code>Shell> mode 80 25
+Shell> echo 0123456789
+0123456789
+Shell> echo 01234567891123456789212345678931234567894123456789512345678961234567
+897123456789
+01234567891123456789212345678931234567894123456789512345678961234567897123456789
+
+Shell> </code></pre>
+        </section>
+      </section>
+      <section id="set">
+        <h3>set</h3>
+        <p>
+          Set a volatile variable with `<code>set -v NAME VALUE</code>'.  Unset a variable with `<code>set -d
+          NAME</code>'.  If `<code>set</code>' is used without any argument, it will print all environment variables.
+        </p>
+        <p>
+          Variables set in parent shell (or script) are also available in child shell (or script).
+        </p>
+      </section>
+    </section>
+
+  </article>
+  <address class="bottom">
+    <a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:hi@lxvs.net">Email me</a>
+  </address>
+</body>
+</html>
