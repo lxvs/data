@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="/styles/bare.css"/>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/styles/bare.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notes on UEFI Shell Scripting</title>
   <meta name="description" content="Notes on some commands and scripting for UEFI Shell.">
@@ -10,7 +10,7 @@
 <body>
   <article>
     <h1>Notes on UEFI Shell Scripting</h1>
-    <footer class="time">Updated on <time datetime="2023-11-15">November 15, 2023</time>.</footer>
+    <footer class="time">Last updated on <time datetime="2023-11-15">November 15, 2023</time>.</footer>
 
     <nav class="toc" id="content">
       <h2>Content</h2>
@@ -20,15 +20,11 @@
           <li><a href="#script-file">Script File</a></li>
           <li><a href="#invocation">Invocation</a></li>
           <li><a href="#startup">Startup Script</a></li>
+          <li><a href="#force-efi-boot">Force System Booting to UEFI Shell</a></li>
         </ul>
         <li><a href="#commands">Commands</a></li>
         <ul>
           <li><a href="#echo">echo</a></li>
-          <ul>
-            <li><a href="#echo-off">Echo Off</a></li>
-            <li><a href="#quoting">Quoting</a></li>
-            <li><a href="#empty-line-issue">Empty Line Issue</a></li>
-          </ul>
           <li><a href="#set">set</a></li>
         </ul>
       </ul>
@@ -39,7 +35,7 @@
       <section id="script-file">
         <h3>Script File</h3>
         <p>
-          UEFI Shell script files have `<code>.nsh</code>' extension name, and can be encoded in ASCII or UCS-2.
+          UEFI Shell script files have `.nsh' extension name, and can be encoded in ASCII or UCS-2.
         </p>
       </section>
       <section id="invocation">
@@ -57,16 +53,24 @@
           pressed during the delay, the startup script won't be executed.
         </p>
         <p>
-          The startup script must be named `<code>startup.nsh</code>'.  Shell will search for startup script in this
+          The startup script must be named `startup.nsh'.  Shell will search for startup script in this
           order:
         </p>
         <ol>
           <li>the same directory that the Shell is launched</li>
-          <li>paths defined in environment variable `<code>path</code>'</li>
+          <li>paths defined in environment variable `path'</li>
         </ol>
         <p>
-          and execute the script it first found.  The minimum default `<code>path</code>' must contain
+          and execute the script it first found.  The minimum default `path' must contain
           `<code>\efi\tools</code>', `<code>\efi\boot</code>', and `<code>\</code>' for each mapped file system.
+        </p>
+      </section>
+      <section id="force-efi-boot">
+        <h3>Force System Booting to UEFI Shell</h3>
+        <p>
+          In some Intel platforms, you can add a signature `<code># FORCE_EFI_BOOT</code>' (Note that there is one space
+          after `#') to the startup script to force system booting to UEFI Shell.  It must be in the first line of file
+          `startup.nsh'.
         </p>
       </section>
     </section>
@@ -74,29 +78,24 @@
     <section id="commands">
       <h2>Commands</h2>
       <section id="echo">
-        <h3>echo</h3>
-        <section id="echo-off">
-          <h4>Echo Off</h4>
-          <p>
-            Like batch files, shell echoing is enabled by default.  To stop shell echoing during script executing, add
-            `<code>@echo -off</code>' at the beginning of the script.  Prepending `<code>@</code>' to a line suppresses
-            the echoing of that line only.  To turn echoing back on, use `<code>echo -on</code>'.
-          </p>
-        </section>
-        <section id="quoting">
-          <h4>Quoting</h4>
-          <p>
-            The message to be echoed can either be quoted with double quotation marks (<code>"</code>), or be not
-            quoted.  However, if there is any switch-like argument, such as `<code>-i</code>', in the message, the
-            message must be quoted, or the echo will error with `<samp>echo: Unknown flag - '-i'</samp>'.
-          </p>
-        </section>
-        <section id="empty-line-issue">
-          <h4>Empty Line Issue</h4>
-          <p>
-            Normally, `echo' will end output with a newline, but if the last line takes up all of the console column (e.g., echoing exact 80 characters in a 80x25 mode shell), `echo' with ends output with an empty line.
-          </p>
-          <pre><code>Shell> mode 80 25
+        <h3><code>echo</code></h3>
+        <h4>Echo Off</h4>
+        <p>
+          Like batch files, shell echoing is enabled by default.  To stop shell echoing during script executing, add
+          `<code>@echo -off</code>' at the beginning of the script.  Prepending `<code>@</code>' to a line suppresses
+          the echoing of that line only.  To turn echoing back on, use `<code>echo -on</code>'.
+        </p>
+        <h4>Quoting</h4>
+        <p>
+          The message to be echoed can either be quoted with double quotation marks (<code>"</code>), or be not
+          quoted.  However, if there is any switch-like argument, such as `<code>-i</code>', in the message, the
+          message must be quoted, or the echo will error with `<samp>echo: Unknown flag - '-i'</samp>'.
+        </p>
+        <h4>Empty Line Issue</h4>
+        <p>
+          Normally, `echo' will end output with a newline, but if the last line takes up all of the console column (e.g., echoing exact 80 characters in a 80x25 mode shell), `echo' with ends output with an empty line.
+        </p>
+        <pre><code>Shell> mode 80 25
 Shell> echo 0123456789
 0123456789
 Shell> echo 11111111112222222222333333333344444444445555555555666666666677777777
@@ -104,16 +103,17 @@ Shell> echo 11111111112222222222333333333344444444445555555555666666666677777777
 11111111112222222222333333333344444444445555555555666666666677777777778888888888
 
 Shell> </code></pre>
-        </section>
       </section>
       <section id="set">
-        <h3>set</h3>
+        <h3><code>set</code></h3>
         <p>
           Set a volatile variable with `<code>set -v NAME VALUE</code>'.  Unset a variable with `<code>set -d
           NAME</code>'.  If `<code>set</code>' is used without any argument, it will print all environment variables.
         </p>
+        <h4>Nesting</h4>
         <p>
-          Variables set in parent shell (or script) are also available in child shell (or script).
+          Variables set (or changed) in a parent shell (or a parent script) will be reflected in its child shells (or
+          the scripts it called), and vice versa.
         </p>
       </section>
     </section>
