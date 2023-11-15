@@ -1,136 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>BASH Parameter Expansions</title>
+  <title>Redirecting</title>
   <meta charset="UTF-8"/>
-  <meta name="description" content="A quick guide on Bash parameter expansions.">
-  <link rel="stylesheet" href="/styles/bare.css"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; URL=/posts/shell-parameter-expansion">
+  <link rel="stylesheet" href="/styles/bare.css"/>
 </head>
-
 <body>
-  <article>
-    <h1>BASH Parameter Expansions</h1>
-    <footer class="time">Updated on <time datetime="2023-08-25">August 25, 2023</time>.</footer>
-
-    <nav class="toc" id="content">
-      <h2>Content</h2>
-      <ul>
-        <li><a href="#parameter-expansions">Parameter Expansions</a></li>
-        <li><a href="#substring">Substring</a></li>
-        <li><a href="#reference-to-variables">Reference to Variables</a></li>
-        <li><a href="#references">References</a></li>
-      </ul>
-    </nav>
-
-    <section id="parameter-expansions">
-      <h2>Parameter Expansions</h2>
-      <table>
-        <tr>
-          <th>Reference</th>
-          <th>Set and Not Null</th>
-          <th>Set but Null</th>
-          <th>Unset</th>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>-<em>word</em>}</code></td>
-          <td>substitute <em>parameter</em></td>
-          <td>substitute null</td>
-          <td>substitute <em>word</em></td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>:-<em>word</em>}</code></td>
-          <td>substitute <em>parameter</em></td>
-          <td>substitute <em>word</em></td>
-          <td>substitute <em>word</em></td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>+<em>word</em>}</code></td>
-          <td>substitute <em>word</em></td>
-          <td>substitute <em>word</em></td>
-          <td>substitute null</td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>:+<em>word</em>}</code></td>
-          <td>substitute <em>word</em></td>
-          <td>substitute null</td>
-          <td>substitute null</td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>=<em>word</em>}</code></td>
-          <td>substitute <em>parameter</em></td>
-          <td>substitute null</td>
-          <td>assign <em>word</em></td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>:=<em>word</em>}</code></td>
-          <td>substitute <em>parameter</em></td>
-          <td>assign <em>word</em></td>
-          <td>assign <em>word</em></td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>?<em>word</em>}</code></td>
-          <td>substitute <em>parameter</em></td>
-          <td>error, exit</td>
-          <td>error, exit</td>
-        </tr>
-        <tr>
-          <td><code>${<em>parameter</em>:?<em>word</em>}</code></td>
-          <td>substitute <em>parameter</em></td>
-          <td>substitute null</td>
-          <td>error, exit</td>
-        </tr>
-      </table>
-    </section>
-
-    <section id="substring">
-      <h2>Substring</h2>
-      <h3><code>${parameter#pattern}</code></h3>
-      <p>Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the beginning deleted.</p>
-      <h3><code>${parameter##pattern}</code></h3>
-      <p>Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the beginning deleted.</p>
-      <h3><code>${parameter%pattern}</code></h3>
-      <p>Expand to <em>parameter</em> with <strong>shortest</strong> matching <em>pattern</em> from the end deleted.</p>
-      <h3><code>${parameter%%pattern}</code></h3>
-      <p>Expand to <em>parameter</em> with <strong>longest</strong> matching <em>pattern</em> from the end deleted.</p>
-    </section>
-
-    <section id="reference-to-variables">
-      <h2>Reference to Variables</h2>
-      <h3><code>${!word}</code></h3>
-      <p>Expand to variable <code>${$word}</code> if it's defined, error otherwise. Note that <em>word</em> is non-recursive; references like <code>${!operation_${codename}}</code> will fail.</p>
-      <p>Example:</p>
-      <pre><code class="dollar">variable=value</code>
-<code class="dollar">word=variable</code>
-<code class="dollar">echo $word</code>
-<samp>variable</samp>
-
-<code class="dollar">echo $vairable</code>
-<samp>value</samp>
-
-<code class="dollar">echo ${!word}</code>
-<samp>value</samp>
-
-<code class="dollar">codename=blueline</code>
-<code class="dollar">operation_blueline=success!</code>
-<code class="dollar">echo $operation_blueline</code>
-<samp>success!</samp>
-
-<code class="dollar">echo ${!operation_$codename}</code>
-<samp>bash: ${!operation_$codename}: bad substitution</samp></pre>
-    </section>
-
-    <section id="references">
-      <h2>References</h2>
-      <ul>
-        <li><a href="http://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html" target="_blank">Shell Parameter Expansion (Bash Reference Manual)</a></li>
-        <li><a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_06_02" target="_blank">Parameter Expansion - Shell Command Language</a></li>
-      </ul>
-    </section>
-
-  </article>
-  <address class="bottom">
-    <a href="https://github.com/lxvs" target="_blank">GitHub</a> | <a href="mailto:hi@lxvs.net">Email me</a>
-  </address>
+  <div class="redirecting">
+    <p>
+      Redirecting to <a href="/posts/shell-parameter-expansion">POSIX Shell Parameter Expansion</a>...
+    </p>
+  </div>
 </body>
 </html>
